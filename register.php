@@ -34,20 +34,19 @@
 
 
 
-      if(isset($_POST["username"]) && isset($_POST["pass"])) {
+      if(isset($_POST["username"]) && isset($_POST["pass"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["province"]) && isset($_POST["city"])) {
         try {
           $stmt = $conn->prepare("INSERT INTO User (Username,Pass,Firstname,Lastname,Membership,Province,City) VALUES (:username, :pass, :firstname, :lastname, :membership, :province, :city)");
           
-          $nick = "nick";
           $number = 0;
           // Prepare statement
           $stmt->bindParam(':username', $_POST["username"]);
           $stmt->bindParam(':pass', $_POST["pass"]);
-          $stmt->bindParam(':firstname', $nick);
-          $stmt->bindParam(':lastname', $nick);
+          $stmt->bindParam(':firstname', $_POST["firstname"]);
+          $stmt->bindParam(':lastname', $_POST["lastname"]);
           $stmt->bindParam(':membership', $number);
-          $stmt->bindParam(':province', $nick);
-          $stmt->bindParam(':city', $nick);
+          $stmt->bindParam(':province', $_POST["province"]);
+          $stmt->bindParam(':city', $_POST["city"]);
 
           
           
@@ -76,14 +75,14 @@
     if($showform) {
       echo "<form action='register.php' method='post'>
               <h2> Register Form </h2>
-              <div> Username: <input name='username' type='text'/> </div> <br>
-              <div> Password: <input name='pass' type='password'> </div> <br>
-              <div> Firstname: <input name='firstname' type='text'> </div> <br>
-              <div> Lastname: <input name='lastname' type='text'> </div> <br>";
+              <div> Username: <input required name='username' type='text'/> </div> <br>
+              <div> Password: <input required name='pass' type='password'> </div> <br>
+              <div> Firstname: <input required name='firstname' type='text'> </div> <br>
+              <div> Lastname: <input required name='lastname' type='text'> </div> <br>";
       
       echo "<div>";
       echo "Province: ";
-      echo "<select id='province' name='province' type='text'>";
+      echo "<select required id='province' name='province' type='text'>";
 
       echo "<option value=''> </option>";
       for($i = 0; $i < count($provinces); $i++) {
