@@ -142,3 +142,6 @@ CREATE TABLE Ad (
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
 'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0);
+
+
+/* Need Ad -> images table */
