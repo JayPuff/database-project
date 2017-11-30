@@ -9,7 +9,8 @@ CREATE TABLE User (
     Lastname varchar(50) NOT NULL,
     Membership int DEFAULT 0,
     Province varchar(25) NOT NULL,
-    City varchar(50) NOT NULL
+    City varchar(50) NOT NULL,
+    Usertype varchar(30) NOT NULL DEFAULT "REGULAR"
 );
 
 

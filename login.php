@@ -1,15 +1,21 @@
+<?php session_start(); ?>
 <?php include 'config.php'; ?>
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="index.css"/>
     <title>  Register  </title>
   </head>
   <body>
     <?php
+    if(isset($_SESSION["Username"])) {
+      echo "<h1> Already Logged in! </h1>";
+      return;
+    }
+    
     $showform = true;
 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -51,6 +57,7 @@
           else
           {
             $showform = false;
+            $_SESSION["Username"] = $_POST["username"];
             echo "<h1> Logged in successfully! </h1>";
           }
           

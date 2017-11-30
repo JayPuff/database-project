@@ -1,9 +1,10 @@
+<?php session_start(); ?>
 <?php include 'config.php'; ?>
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="index.css"/>
     <title>  Register  </title>
@@ -13,6 +14,8 @@
       $showform = true;
       $provinces;
       $cities;
+
+
 
       $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
       // set the PDO error mode to exception
