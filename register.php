@@ -119,7 +119,7 @@
 
     
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script src="index.js" type="text/javascript"> </script>
+    <script src="register.js" type="text/javascript"> </script>
   </body>
 </html>
 

@@ -15,7 +15,7 @@
       echo "<h1> Already Logged in! </h1>";
       return;
     }
-    
+
     $showform = true;
 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -44,10 +44,12 @@
           $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
           $results = $stmt->fetchAll();
-          
+          $type;
+
           $count = 0;
           for($i = 0; $i < count($results); $i++) {
             $count = 1;
+            $type = $results[$i]["Usertype"];
          }
 
           if($count==0)
@@ -58,7 +60,9 @@
           {
             $showform = false;
             $_SESSION["Username"] = $_POST["username"];
+            $_SESSION["Usertype"] = $type;
             echo "<h1> Logged in successfully! </h1>";
+            echo '<script> window.location.href = "/userpage.php";  </script>';
           }
           
       
@@ -92,7 +96,7 @@
 
     
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script src="index.js" type="text/javascript"> </script>
+    <!-- <script src="index.js" type="text/javascript"> </script> -->
   </body>
 </html>
 

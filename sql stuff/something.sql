@@ -13,6 +13,8 @@ CREATE TABLE User (
     Usertype varchar(30) NOT NULL DEFAULT "REGULAR"
 );
 
+INSERT INTO User VALUES ('admin','admin','Admin','Admin',0,'Quebec','Montreal',"ADMIN");
+INSERT INTO User VALUES ('nick','nick','Nicolas','Correa',0,'Quebec','Montreal',"REGULAR");
 
 
 CREATE TABLE Province (
@@ -71,6 +73,49 @@ VALUES('Victoria','British Columbia'),
 ('Whitehorse','Yukon'),
 ('Dawson City','Yukon'),
 ('Watson Lake','Yukon');
+
+
+
+CREATE TABLE Category (
+    CategoryName varchar(50) PRIMARY KEY NOT NULL
+);
+
+
+CREATE TABLE SubCategory (
+    SubCategoryName varchar(50) PRIMARY KEY NOT NULL,
+    CategoryName varchar(50) NOT NULL
+);
+
+
+INSERT INTO Category VALUES ('Buy and Sell');
+INSERT INTO Category VALUES ('Services');
+INSERT INTO Category VALUES ('Rent');
+INSERT INTO Category VALUES ('Pets');
+
+
+INSERT INTO SubCategory VALUES ('Clothing','Buy and Sell');
+INSERT INTO SubCategory VALUES ('Books','Buy and Sell');
+INSERT INTO SubCategory VALUES ('Electronics','Buy and Sell');
+INSERT INTO SubCategory VALUES ('Musical Instruments','Buy and Sell');
+
+INSERT INTO SubCategory VALUES ('Tutors','Services');
+INSERT INTO SubCategory VALUES ('EventPlanners','Services');
+INSERT INTO SubCategory VALUES ('Photographers','Services');
+INSERT INTO SubCategory VALUES ('Personal Trainers','Services');
+
+INSERT INTO SubCategory VALUES ('Electronics','Rent');
+INSERT INTO SubCategory VALUES ('Car','Rent');
+INSERT INTO SubCategory VALUES ('apartments','Rent');
+INSERT INTO SubCategory VALUES ('Wedding Dresses','Rent');
+
+INSERT INTO SubCategory VALUES ('Lost and Found','Pets');
+INSERT INTO SubCategory VALUES ('Rehoming','Pets');
+INSERT INTO SubCategory VALUES ('Accessories','Pets');
+INSERT INTO SubCategory VALUES ('Other','Pets');
+
+
+
+
 
 
 
