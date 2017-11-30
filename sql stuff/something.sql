@@ -1,6 +1,9 @@
 DROP TABLE User;
 DROP TABLE Province;
 DROP TABLE City;
+DROP TABLE Category;
+DROP TABLE SubCategory;
+DROP TABLE Ad;
 
 CREATE TABLE User (
     Username varchar(50) PRIMARY KEY NOT NULL,
@@ -114,9 +117,28 @@ INSERT INTO SubCategory VALUES ('Accessories','Pets');
 INSERT INTO SubCategory VALUES ('Other','Pets');
 
 
+CREATE TABLE Ad (
+    Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Username varchar(50) NOT NULL,
+    Email varchar(50) NOT NULL,
+    PhoneNumber varchar(20) NOT NULL,
+    Price int NOT NULL,
+    Available varchar(20) NOT NULL DEFAULT "ONLINE",
+    ForSaleBy varchar(50) NOT NULL,
+    Title varchar(50) NOT NULL,
+    AdDesc varchar(255) NOT NULL,
+    Addr varchar(100) NOT NULL,
+    Category varchar(50) NOT NULL,
+    SubCategory varchar(50) NOT NULL,
+    Province varchar(50) NOT NULL,
+    City varchar(50) NOT NULL,
+    Posted Date,
+    Sold   varchar(1) NOT NULL DEFAULT 'F',
+    Promotion int NOT NULL DEFAULT 0
+);
 
+/*  */
 
-
-
-
-
+INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
+'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0);
