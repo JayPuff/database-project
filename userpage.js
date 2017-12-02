@@ -9,6 +9,10 @@
         window.location.href = "/userpage.php?myads=true";
     }
 
+    window.newAd = function() {
+        window.location.href = "/newad.php";
+    }
+
     window.filter = function() {
         var $province = $('#province');
         var province = "";

@@ -1,12 +1,37 @@
 <?php
 
+function categoryDropdown($categories,$subcategories) {
+    echo "<select required id='category' name='category' type='text'>";
+    
+    echo "<option value=''> </option>";
+    for($i = 0; $i < count($categories); $i++) {
+    echo "<option value='" . $categories[$i]["CategoryName"]  . "'>" . $categories[$i]["CategoryName"]  . "</option>";
+    }
+    
+    echo "&nbsp;";
+    echo "</select>";
+
+    for($i = 0; $i < count($categories); $i++) {
+        echo "<select hidden='true' class='form-hidden subcategory-dropdown " . $categories[$i]["CategoryName"]  .  "-dropdown' name='subcategory' type='text'>";
+        for($j = 0; $j < count($subcategories); $j++) {
+          if($categories[$i]["CategoryName"] == $subcategories[$j]["CategoryName"]) {
+            echo "<option value='" . $subcategories[$j]["SubCategoryName"] .  "' >";
+              echo $subcategories[$j]["SubCategoryName"];
+            echo "</option>";
+          }
+        }
+        echo "</select>";
+      }
+}
+
+
 
 function locationDropdown($provinces,$cities) {
     echo "<select required id='province' name='province' type='text'>";
     
     echo "<option value=''> </option>";
     for($i = 0; $i < count($provinces); $i++) {
-    echo "<option value='" . $provinces[$i]["province_name"]  . "'>" . $provinces[$i]["province_name"]  . "</option>";
+    echo "<option value='" . $provinces[$i]["province_name"]  . "'>" . str_replace("-"," ",$provinces[$i]["province_name"])  . "</option>";
     }
     
     echo "&nbsp;";

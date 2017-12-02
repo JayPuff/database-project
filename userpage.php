@@ -8,6 +8,7 @@
     <!-- <meta charset="utf-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="userpage.css"/>
     <title>  User page  </title>
   </head>
   <body>
@@ -124,7 +125,7 @@
     <? if($_SESSION["Usertype"] == "REGULAR") { ?>
         <div class="aside"> 
             <button type="button" onclick="viewMyAds()"> View my ADS </button>
-            <button type="button" onclick="something()"> Post new AD </button>
+            <button type="button" onclick="newAd()"> Post new AD </button>
             <button type="button" onclick="something()"> Change Membership </button>
             <hr>
 

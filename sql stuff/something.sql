@@ -34,13 +34,13 @@ CREATE TABLE City (
 INSERT INTO Province VALUES('Quebec');
 INSERT INTO Province VALUES('Ontario');
 INSERT INTO Province(province_name)
-VALUES( 'Nova Scotia' ),( 'New Brunswick' ),( 'Manitoba' ),
-('British Columbia'),
-('Prince Edward Island'),
+VALUES( 'Nova-Scotia' ),( 'New-Brunswick' ),( 'Manitoba' ),
+('British-Columbia'),
+('Prince-Edward-Island'),
 ('Saskatchewan'),
 ('Alberta'),
-('Newfoundland and Labrador'),
-('Northwest Territories'),
+('Newfoundland-and-Labrador'),
+('Northwest-Territories'),
 ('Yukon'),
 ('Nunavut');
 
@@ -50,26 +50,26 @@ INSERT INTO City VALUES('Quebec City','Quebec');
 INSERT INTO City VALUES('Toronto','Ontario');
 
 INSERT INTO City(city_name, province_name)
-VALUES('Victoria','British Columbia'),
-('Kelowna','British Columbia'),
-('Moncton','New Brunswick'),
-('Saint John','New Brunswick'),
-('Fredericton','New Brunswick'),
-('Labrador City','Newfoundland and Labrador'),
-('Corner Brook','Newfoundland and Labrador'),
-('Gander','Newfoundland and Labrador'),
-('Fort Simpson','Northwest Territories'),
-('Yellowknife','Northwest Territories'),
-('Inuvik','Northwest Territories'),
-('Halifax','Nova Scotia'),
-('Sydney','Nova Scotia'),
-('Truro','Nova Scotia'),
+VALUES('Edmonton','Alberta'),('Winnipeg','Manitoba'),('Victoria','British-Columbia'),
+('Kelowna','British-Columbia'),
+('Moncton','New-Brunswick'),
+('Saint John','New-Brunswick'),
+('Fredericton','New-Brunswick'),
+('Labrador City','Newfoundland-and-Labrador'),
+('Corner Brook','Newfoundland-and-Labrador'),
+('Gander','Newfoundland-and-Labrador'),
+('Fort Simpson','Northwest-Territories'),
+('Yellowknife','Northwest-Territories'),
+('Inuvik','Northwest-Territories'),
+('Halifax','Nova-Scotia'),
+('Sydney','Nova-Scotia'),
+('Truro','Nova-Scotia'),
 ('Iqaluit','Nunavut'),
 ('Baker Lane','Nunavut'),
 ('Rankin Inlet','Nunavut'),
-('Charlottetown','Prince Edward Island'),
-('Summerside','Prince Edward Island'),
-('Montague','Prince Edward Island'),
+('Charlottetown','Prince-Edward-Island'),
+('Summerside','Prince-Edward-Island'),
+('Montague','Prince-Edward-Island'),
 ('Regina','Saskatchewan'),
 ('Saskatoon','Saskatchewan'),
 ('Moose Jaw','Saskatchewan'),
@@ -90,16 +90,16 @@ CREATE TABLE SubCategory (
 );
 
 
-INSERT INTO Category VALUES ('Buy and Sell');
+INSERT INTO Category VALUES ('BuyAndSell');
 INSERT INTO Category VALUES ('Services');
 INSERT INTO Category VALUES ('Rent');
 INSERT INTO Category VALUES ('Pets');
 
 
-INSERT INTO SubCategory VALUES ('Clothing','Buy and Sell');
-INSERT INTO SubCategory VALUES ('Books','Buy and Sell');
-INSERT INTO SubCategory VALUES ('Electronics','Buy and Sell');
-INSERT INTO SubCategory VALUES ('Musical Instruments','Buy and Sell');
+INSERT INTO SubCategory VALUES ('Clothing','BuyAndSell');
+INSERT INTO SubCategory VALUES ('Books','BuyAndSell');
+INSERT INTO SubCategory VALUES ('Electronics','BuyAndSell');
+INSERT INTO SubCategory VALUES ('Musical Instruments','BuyAndSell');
 
 INSERT INTO SubCategory VALUES ('Tutors','Services');
 INSERT INTO SubCategory VALUES ('EventPlanners','Services');
@@ -116,13 +116,14 @@ INSERT INTO SubCategory VALUES ('Rehoming','Pets');
 INSERT INTO SubCategory VALUES ('Accessories','Pets');
 INSERT INTO SubCategory VALUES ('Other','Pets');
 
+/*  */
 
 CREATE TABLE Ad (
     Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     Username varchar(50) NOT NULL,
     Email varchar(50) NOT NULL,
     PhoneNumber varchar(20) NOT NULL,
-    Price int NOT NULL,
+    Price float NOT NULL,
     Available varchar(20) NOT NULL DEFAULT "ONLINE",
     ForSaleBy varchar(50) NOT NULL,
     Title varchar(50) NOT NULL,
@@ -137,7 +138,6 @@ CREATE TABLE Ad (
     Promotion int NOT NULL DEFAULT 0
 );
 
-/*  */
 
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
