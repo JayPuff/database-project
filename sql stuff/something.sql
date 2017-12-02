@@ -10,14 +10,14 @@ CREATE TABLE User (
     Pass varchar(50) NOT NULL,
     Firstname varchar(50) NOT NULL,
     Lastname varchar(50) NOT NULL,
-    Membership int DEFAULT 0,
+    Membership int DEFAULT 7,
     Province varchar(25) NOT NULL,
     City varchar(50) NOT NULL,
     Usertype varchar(30) NOT NULL DEFAULT "REGULAR"
 );
 
-INSERT INTO User VALUES ('admin','admin','Admin','Admin',0,'Quebec','Montreal',"ADMIN");
-INSERT INTO User VALUES ('nick','nick','Nicolas','Correa',0,'Quebec','Montreal',"REGULAR");
+INSERT INTO User VALUES ('admin','admin','Admin','Admin',30,'Quebec','Montreal',"ADMIN");
+INSERT INTO User VALUES ('nick','nick','Nicolas','Correa',7,'Quebec','Montreal',"REGULAR");
 
 
 CREATE TABLE Province (
@@ -142,6 +142,10 @@ CREATE TABLE Ad (
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
 'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0);
+
+INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
+'Pets','Accessories','Quebec','Montreal','2017-11-20','F',0);
 
 
 /* Need Ad -> images table */

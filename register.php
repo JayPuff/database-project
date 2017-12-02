@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php include 'config.php'; ?>
+<?php include 'utils.php'; ?>
 
 <!doctype html>
 <html lang="en">
@@ -85,27 +86,8 @@
       
       echo "<div>";
       echo "Province: ";
-      echo "<select required id='province' name='province' type='text'>";
 
-      echo "<option value=''> </option>";
-      for($i = 0; $i < count($provinces); $i++) {
-        echo "<option value='" . $provinces[$i]["province_name"]  . "'>" . $provinces[$i]["province_name"]  . "</option>";
-      }
-      
-      echo "&nbsp;";
-      echo "</select>";
-
-      for($i = 0; $i < count($provinces); $i++) {
-        echo "<select hidden='true' class='form-hidden city-dropdown " . $provinces[$i]["province_name"]  .  "-dropdown' name='city' type='text'>";
-        for($j = 0; $j < count($cities); $j++) {
-          if($provinces[$i]["province_name"] == $cities[$j]["province_name"]) {
-            echo "<option value='" . $cities[$j]["city_name"] .  "' >";
-              echo $cities[$j]["city_name"];
-            echo "</option>";
-          }
-        }
-        echo "</select>";
-      }
+      locationDropdown($provinces,$cities);
 
       echo "</div>";
 
@@ -119,7 +101,7 @@
 
     
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script src="register.js" type="text/javascript"> </script>
+    <script src="locationDropdown.js" type="text/javascript"> </script>
   </body>
 </html>
 
