@@ -149,3 +149,16 @@ INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE"
 
 
 /* Need Ad -> images table */
+/* Sorting by Promotion */
+/* Province/city setting on main page? */
+/* change membership */ /* also goes to purchase page */
+
+/* View ad page */
+/* User: buy */  /* payment page, (rate after) */
+/* User: Delete / edit / add promotion  */
+/* store payment details in new table */
+
+
+/* admin reports */
+/* admin view all */
+
