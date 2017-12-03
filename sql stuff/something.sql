@@ -19,6 +19,39 @@ CREATE TABLE User (
 INSERT INTO User VALUES ('admin','admin','Admin','Admin',30,'Quebec','Montreal',"ADMIN");
 INSERT INTO User VALUES ('nick','nick','Nicolas','Correa',7,'Quebec','Montreal',"REGULAR");
 
+INSERT INTO User VALUES ('john','john','John','Smith',14,'Quebec','Montreal',"REGULAR");
+
+INSERT INTO User VALUES ('harry','harry','Harry','Potter',30,'Quebec','Montreal',"REGULAR");
+
+INSERT INTO User VALUES ('jim','jim','James','Jones',30,'Quebec','Montreal',"REGULAR");
+
+INSERT INTO User VALUES ('pat','pat','Patrick','Stewart',7,'Quebec','Quebec City',"REGULAR");
+
+INSERT INTO User VALUES ('Mat','Mat','Matthew','Robinson',7,'Quebec','Quebec City',"REGULAR");
+
+INSERT INTO User VALUES ('sarah','sarah','Sarah','Lynn',14,'Quebec','Quebec City',"REGULAR");
+
+INSERT INTO User VALUES ('kara','kara','Kara','Edwards',14,'Quebec','Quebec City',"REGULAR");
+
+INSERT INTO User VALUES ('michel','michel','Michel','Perlsteyn',14,'Ontario','Ottowa',"REGULAR");
+
+INSERT INTO User VALUES ('rick','rick','Richard','Dawson',14,'Ontario','Ottowa',"REGULAR");
+
+
+INSERT INTO User VALUES ('tony','tony','Tony','Montana',14,'Ontario','Ottowa',"REGULAR");
+
+
+INSERT INTO User VALUES ('kim','kim','Kim','Kardashian',7,'Ontario','Ottowa',"REGULAR");
+
+INSERT INTO User VALUES ('jamie','jamie','Jamie','Fox',30,'Ontario','Toronto',"REGULAR");
+
+
+INSERT INTO User VALUES ('joe','joe','Joe','Lewis',7,'Ontario','Toronto',"REGULAR");
+
+INSERT INTO User VALUES ('maggie','maggie','Maggie','Moon',30,'Ontario','Toronto',"REGULAR");
+
+INSERT INTO User VALUES ('james','james','James','Brown',7,'Ontario','Toronto',"REGULAR");
+
 
 CREATE TABLE Province (
     province_name varchar(50) PRIMARY KEY NOT NULL
@@ -49,6 +82,8 @@ INSERT INTO City VALUES('Montreal','Quebec');
 INSERT INTO City VALUES('Quebec City','Quebec');
 INSERT INTO City VALUES('Toronto','Ontario');
 
+INSERT INTO City VALUES('Ottowa','Ontario');
+
 INSERT INTO City(city_name, province_name)
 VALUES('Edmonton','Alberta'),('Winnipeg','Manitoba'),('Victoria','British-Columbia'),
 ('Kelowna','British-Columbia'),
@@ -76,6 +111,15 @@ VALUES('Edmonton','Alberta'),('Winnipeg','Manitoba'),('Victoria','British-Columb
 ('Whitehorse','Yukon'),
 ('Dawson City','Yukon'),
 ('Watson Lake','Yukon');
+
+
+
+
+/*  *****************************************  */
+/*  *****************************************  */
+/*  *****************************************  */
+/*  *****************************************  */
+/*  *****************************************  */
 
 
 
@@ -116,11 +160,7 @@ INSERT INTO SubCategory VALUES ('Rehoming','Pets');
 INSERT INTO SubCategory VALUES ('Accessories','Pets');
 INSERT INTO SubCategory VALUES ('Other','Pets');
 
-/*  *****************************************  */
-/*  *****************************************  */
-/*  *****************************************  */
-/*  *****************************************  */
-/*  *****************************************  */
+
 
 CREATE TABLE Ad (
     Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -139,17 +179,57 @@ CREATE TABLE Ad (
     City varchar(50) NOT NULL,
     Posted Date,
     Sold   varchar(1) NOT NULL DEFAULT 'F',
-    Promotion int NOT NULL DEFAULT 0
+    Promotion int NOT NULL DEFAULT 0,
+    Rating int NOT NULL DEFAULT 0
 );
 
 
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0);
+'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0,0);
+
 
 INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "Selling Some cat food","Please buy it, it's haunted", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14);
+'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14,0);
+
+INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+"Cowboy Boots","They have never been used", "Somewhere 5525",
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0);
+
+
+INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',26.5,"ONLINE", "Owner",
+"Cowboy Hat","Authentic Swade", "Somewhere 5525",
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0);
+
+INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+"Cowboy Boots","They have never been used", "Somewhere 5525",
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0);
+
+
+INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"Cowboy Belt","leather brand new", "Somewhere 5525",
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0);
+
+
+CREATE TABLE Physicalstore (
+    PSID int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    status varchar(50) NOT NULL DEFAULT "PENDING",
+    weekType varchar(50) NOT NULL,
+    strategicLocation varchar(50) NOT NULL,
+    totalCost float NOT NULL,
+    delivery float NOT NULL,
+    startTime int NOT NULL,
+    endTime int NOT NULL,
+    date Date,
+    tempID int NOT NULL
+);
+
+/*
+
+SELECT AVG(Rating) FROM Ad WHERE Username='nick' AND Sold = 'T';
+
+*/
 
 
 /* Need Ad -> images table */
@@ -165,4 +245,7 @@ INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE"
 
 /* admin reports */
 /* admin view all */
+
+
+
 

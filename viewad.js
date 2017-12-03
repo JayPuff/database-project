@@ -2,7 +2,10 @@
 
 (function() {
     window.deleteAd = function() {
-        window.location.href = "/deletead.php";
+        //id is global
+        if(confirm("Are you sure you want to delete this AD?")) {
+            window.location.href = "/deletead.php?id=" + id;
+        }
     }
 
     window.editAd = function() {

@@ -63,7 +63,7 @@
         
 
         try {
-          $stmt = $conn->prepare("INSERT INTO Ad VALUES (0, :username, :email, :phonenumber, :price, :available, :forsaleby, :title, :addesc, :addr, :category, :subcategory, :province, :city, CURDATE(), 'F', 0)");
+          $stmt = $conn->prepare("INSERT INTO Ad VALUES (0, :username, :email, :phonenumber, :price, :available, :forsaleby, :title, :addesc, :addr, :category, :subcategory, :province, :city, CURDATE(), 'F', 0,0)");
           
           //$number = 0;
           
