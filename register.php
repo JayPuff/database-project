@@ -38,7 +38,7 @@
 
 
 
-      if(isset($_POST["username"]) && isset($_POST["pass"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["province"]) && isset($_POST["city"])) {
+      if(isset($_POST["username"]) && isset($_POST["pass"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["province"])) {
         try {
           $stmt = $conn->prepare("INSERT INTO User (Username,Pass,Firstname,Lastname,Membership,Province,City) VALUES (:username, :pass, :firstname, :lastname, :membership, :province, :city)");
           
@@ -50,7 +50,7 @@
           $stmt->bindParam(':lastname', $_POST["lastname"]);
           $stmt->bindParam(':membership', $number);
           $stmt->bindParam(':province', $_POST["province"]);
-          $stmt->bindParam(':city', $_POST["city"]);
+          $stmt->bindParam(':city', $_POST[$_POST["province"] . "-city"]);
 
           
           

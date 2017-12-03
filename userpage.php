@@ -59,7 +59,7 @@
 
     if(isset($_GET["myads"])) {
         if($_GET["myads"] != "") {
-            $stmt = $conn->prepare("SELECT * FROM Ad WHERE Username=:username AND Available='ONLINE'");
+            $stmt = $conn->prepare("SELECT * FROM Ad WHERE Username=:username");
             $stmt->bindParam(':username', $_SESSION["Username"]);
             
             $stmt->execute();
@@ -69,7 +69,7 @@
             $ads = $stmt->fetchAll();
         } 
     } else {
-        $stmt = $conn->prepare("SELECT a.* FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE'");
+        $stmt = $conn->prepare("SELECT a.* FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' ORDER BY a.Promotion DESC");
         $stmt->bindParam(':username', $_SESSION["Username"]);
         
         $stmt->execute();
@@ -207,6 +207,7 @@
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
     <script src="userpage.js" type="text/javascript"> </script>
     <script src="locationDropdown.js" type="text/javascript"> </script>
+    
 
     <? 
         if(isset($_GET["province"])) {

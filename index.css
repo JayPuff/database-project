@@ -3,6 +3,7 @@ html, body {
     padding:0px; 
     height:100%;
     width:100%;
+    font-family: Helvetica, sans-serif;
 }
 
 body {
@@ -73,6 +74,11 @@ button {
     max-width:70%;
 }
 
+.ad-content {
+    display:block !important;
+    margin:5px;
+}
+
 .aside button {
     width:90%;
     margin-left:auto;
@@ -81,6 +87,7 @@ button {
 
 .aside h2 {
     text-align:center;
+    color:#444444;
 }
 
 

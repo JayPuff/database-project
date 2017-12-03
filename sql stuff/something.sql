@@ -116,7 +116,11 @@ INSERT INTO SubCategory VALUES ('Rehoming','Pets');
 INSERT INTO SubCategory VALUES ('Accessories','Pets');
 INSERT INTO SubCategory VALUES ('Other','Pets');
 
-/*  */
+/*  *****************************************  */
+/*  *****************************************  */
+/*  *****************************************  */
+/*  *****************************************  */
+/*  *****************************************  */
 
 CREATE TABLE Ad (
     Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -144,12 +148,12 @@ INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE",
 'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0);
 
 INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
-"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-11-20','F',0);
+"Selling Some cat food","Please buy it, it's haunted", "Somewhere 5525",
+'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14);
 
 
 /* Need Ad -> images table */
-/* Sorting by Promotion */
+/* Sorting by Promotion */ /* DONE */
 /* Province/city setting on main page? */
 /* change membership */ /* also goes to purchase page */
 

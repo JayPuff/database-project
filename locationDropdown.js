@@ -14,6 +14,16 @@
         $cityDD.removeClass('form-hidden');
     })
 
+
+    if(city) {
+        $('.city-dropdown').each(function() {
+            if(this.value == city) {
+                console.log(this.value);
+                $(this).removeAttr('hidden');
+                $(this).removeClass('form-hidden');
+            }
+        });
+    }
     
 })();
 

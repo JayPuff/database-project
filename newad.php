@@ -58,7 +58,7 @@
 
 
 
-      if(isset($_POST["title"]) && isset($_POST["addesc"]) && isset($_POST["price"]) && isset($_POST["available"]) && isset($_POST["forsaleby"]) && isset($_POST["province"]) && isset($_POST["city"]) && isset($_POST["subcategory"]) && isset($_POST["category"]) && isset($_POST["email"]) && isset($_POST["addr"]) && isset($_POST["phonenumber"]) ) {
+      if(isset($_POST["title"]) && isset($_POST["addesc"]) && isset($_POST["price"]) && isset($_POST["available"]) && isset($_POST["forsaleby"]) && isset($_POST["province"]) &&  isset($_POST["category"]) && isset($_POST["email"]) && isset($_POST["addr"]) && isset($_POST["phonenumber"]) ) {
        
         
 
@@ -66,6 +66,8 @@
           $stmt = $conn->prepare("INSERT INTO Ad VALUES (0, :username, :email, :phonenumber, :price, :available, :forsaleby, :title, :addesc, :addr, :category, :subcategory, :province, :city, CURDATE(), 'F', 0)");
           
           //$number = 0;
+          
+
           // Prepare statement
           $stmt->bindParam(':username', $_SESSION["Username"]);
           $stmt->bindParam(':email', $_POST["email"]);
@@ -77,9 +79,9 @@
           $stmt->bindParam(':addesc', $_POST["addesc"]);
           $stmt->bindParam(':addr', $_POST["addr"]);
           $stmt->bindParam(':category', $_POST["category"]);
-          $stmt->bindParam(':subcategory', $_POST["subcategory"]);
+          $stmt->bindParam(':subcategory', $_POST[$_POST["category"] . "-subcategory"]);
           $stmt->bindParam(':province', $_POST["province"]);
-          $stmt->bindParam(':city', $_POST["city"]);
+          $stmt->bindParam(':city', $_POST[$_POST["province"] . "-city"]);
 
           
           
