@@ -47,7 +47,7 @@
 
     $cities = $stmt->fetchAll();
 
-    $stmt = $conn->prepare("SELECT DISTINCT a.Username FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' AND a.Deleted='F'"); 
+    $stmt = $conn->prepare("SELECT DISTINCT a.Username FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' AND a.Deleted='F' AND Sold='F'"); 
     $stmt->execute();
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -69,7 +69,7 @@
             $ads = $stmt->fetchAll();
         } 
     } else {
-        $stmt = $conn->prepare("SELECT a.* FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' AND a.Deleted='F' ORDER BY a.Promotion DESC");
+        $stmt = $conn->prepare("SELECT a.* FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' AND a.Deleted='F' AND Sold='F' ORDER BY a.Promotion DESC");
         $stmt->bindParam(':username', $_SESSION["Username"]);
         
         $stmt->execute();

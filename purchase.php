@@ -116,29 +116,75 @@
         <div class="content ad-content"> 
         <? if($mode == "MEMBERSHIP") { ?>
                 <h2> Membership Purchase </h2>
+                <p> Memberships will allow your ads to remain on the site for a longer period of time </p>
+                <p> 7 Days - 10$ </p>
+                <p> 14 Days - 50$ </p>
+                <p> 30 Days - 90$ </p>
+
+                <select id="membership">
+                    <option value='7' > 7 Days </option>
+                    <option value='14' > 14 Days </option>
+                    <option value='30' > 30 Days </option>
+                </select>
+
             <? } ?>
 
             <? if($mode == "PROMOTION") { ?>
                 <h2> Promotion Purchase </h2>
+                <p> Promotions will bump your AD to the TOP </p>
+                <p> 7 Days - 10$ </p>
+                <p> 14 Days - 50$ </p>
+                <p> 30 Days - 90$ </p>
+
+                <select id="promotion">
+                    <option value='7' > 7 Days </option>
+                    <option value='14' > 14 Days </option>
+                    <option value='30' > 30 Days </option>
+                </select>
             <? } ?>
 
             <? if($mode == "AD") { ?>
                 <h2> Buy AD </h2>
+                <p> You are currently purchasing: <? echo $ad["Title"] ?> </p>
+                <p> For: <? echo $ad["Price"]  ?> </p>
             <? } ?>
+
+
+            <hr> <br>
+            <? purchaseInfo(); ?>
+
         </div>
 
+        <script>
+            <? echo "var type = '" . $mode . "';" ?>
+        </script>
         
         <? if($mode != "MEMBERSHIP") { ?>
             <script>
-                <? echo "var id = " . $ad["Id"] ?>
+                <? echo "var id = " . $ad["Id"] . ";" ?>
             </script>
+        <? } else { ?>
+            <script>
+                <? echo "var id = 0;" ?>
+            </script>
+        <? }  ?>
+
+        <? if($mode == "AD") { ?>
+            <script>
+                <? echo "var price = " . $ad["Price"] ?>
+            </script>
+        <? } else { ?>
+            <script>
+                <? echo "var price = 0;" ?>
+            </script>
+
         <? } ?>
       
 
 
     
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <!-- <script src="viewad.js" type="text/javascript"> </script> -->
+    <script src="purchase.js" type="text/javascript"> </script>
 
   </body>
 </html>

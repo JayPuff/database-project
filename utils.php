@@ -101,4 +101,11 @@ function showAdRight($ad) {
 }
 
 
+function purchaseInfo() {
+  echo "<select id='type'> <option value='CREDIT'> Credit </option> <option value='DEBIT'> Debit </option> </select>";
+  echo "<input id='number' type='text'>";
+
+  echo "<button type='button' onclick='purchase()'> Make Payment </button>";
+}
+
 ?>

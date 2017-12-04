@@ -4,6 +4,7 @@ DROP TABLE City;
 DROP TABLE Category;
 DROP TABLE SubCategory;
 DROP TABLE Ad;
+DROP TABLE Purchase;
 
 CREATE TABLE User (
     Username varchar(50) PRIMARY KEY NOT NULL,
@@ -186,40 +187,442 @@ CREATE TABLE Ad (
 );
 
 
+-- INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+-- "Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
+-- 'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0,0,,'F',"");
+
+
+-- INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+-- "Selling Some cat food","Please buy it, it's haunted", "Somewhere 5525",
+-- 'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14,0,'F',"");
+
+-- INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+-- "Selling Some cat food","Please buy it, it's haunted", "Somewhere 5525",
+-- 'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14,0,'F',"");
+
+-- INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+-- "Cowboy Boots","They have never been used", "Somewhere 5525",
+-- 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+
+
+-- INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',26.5,"ONLINE", "Owner",
+-- "Cowboy Hat","Authentic Swade", "Somewhere 5525",
+-- 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+
+-- INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+-- "Cowboy Boots","They have never been used", "Somewhere 5525",
+-- 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+
+
+-- INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+-- "Cowboy Belt","leather brand new", "Somewhere 5525",
+-- 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+
+-- INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+-- "winter jacket for sale","it's really good!", "Somewhere 5525",
+-- 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+
+
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0,0,,'F',"");
-
-
-INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
-"Selling Some cat food","Please buy it, it's haunted", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14,0,'F',"");
-
-INSERT INTO Ad VALUES(0,'admin','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
-"Selling Some cat food","Please buy it, it's haunted", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-11-20','F',14,0,'F',"");
-
+'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
 "Cowboy Boots","They have never been used", "Somewhere 5525",
-'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
-
-
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://www.westernwear.co.uk/acatalog/2605%20Black.JPG");
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',26.5,"ONLINE", "Owner",
 "Cowboy Hat","Authentic Swade", "Somewhere 5525",
-'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
-
-INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
-"Cowboy Boots","They have never been used", "Somewhere 5525",
-'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
-
-
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://www.villagehatshop.com/photos/product/standard/4511390S57880/all/crusher-leather-outback-western-hat.jpg");
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
 "Cowboy Belt","leather brand new", "Somewhere 5525",
-'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://sep.yimg.com/ay/yhst-79187215592273/western-texas-ranger-star-cowboy-concho-leather-belt-brown-24.jpg");
 
-INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
-"winter jacket for sale","it's really good!", "Somewhere 5525",
-'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
+
+INSERT INTO Ad VALUES(0,'john','john@gmail.com','514-235-2352',120,"ONLINE", "Owner",
+"winter mens jacket","very fancy northface jacket", "Somewhere 5433",
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://i.pinimg.com/736x/fe/a6/bd/fea6bd44e4cdb201839f3d95373bb3fa--north-face-mens-jackets-north-face-jacket.jpg");
+INSERT INTO Ad VALUES(0,'john','john@gmail.com','514-235-2352',20,"ONLINE", "Owner",
+"Math tutor","20 per hour calculus", "Somewhere 5433",
+'Services','Tutors','Quebec','Montreal','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+INSERT INTO Ad VALUES(0,'john','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Physics tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Quebec','Montreal','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+
+
+
+
+INSERT INTO Ad VALUES(0,'john','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Chemistry tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Quebec','Montreal','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+INSERT INTO Ad VALUES(0,'john','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"HIFi Speakers","Sony Model 110s 2009", "Somewhere 5433",
+'Rent','Electronics','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://assets.logitech.com/assets/64801/4/speaker-system-z130.png");
+INSERT INTO Ad VALUES(0,'john','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"stinky cat","found in dumpster next to my home", "Somewhere 5433",
+'Pets','Lost And Found','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://www.funnypica.com/wp-content/uploads/2012/12/Ugly-Cats-14.jpg");
+
+
+
+
+
+INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',15,"ONLINE", "Owner",
+"stinky Owl","Not a magical one", "Somewhere 911",
+'Pets','Lost And Found','Quebec','Montreal','2017-12-04','F',0,0,'F',"http://www.the-leaky-cauldron.org/wp-content/uploads/assets/hedwig_400x400.jpg");
+INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"flying car","You need to know magic to drive it", "Somewhere 911",
+'Rent','Car','Quebec','Montreal','2017-12-08','F',0,0,'F',"http://static.dnaindia.com/sites/default/files/2014/10/04/272366-harry-potter-flying-car.jpg");
+INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Hogwartz dorming","going away to save the world, subletting my dorm room", "Somewhere 911",
+'Rent','Apartments','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://lmutpg.lmu.edu/C20995_ustores/web/uploaded_images/store_14/rs_560x415-160325124421-1024-wizarding-world-of-harry-potter-hollywood8.jm.32516.jpg");
+
+
+
+
+
+
+
+
+
+
+INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',20,"ONLINE", "Owner",
+"Ipod","I have magic music on my ipod very rare 20 per day", "Somewhere 911",
+'Rent','Electronics','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://cdn.cultofmac.com/wp-content/uploads/2016/05/iPod_Ivan002web-780x520.jpg");
+INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Quiddish Coaching","My speciality is teaching to catch the gold ball", "Somewhere 911",
+'Services','Personal Trainers','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://www.jcu.edu.au/__data/assets/image/0012/230331/quidditch.jpeg");
+INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
+'Buy And Sell','Musical Instruments','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'jim','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Leash","Used a handful of times", "123 st laurent",
+'Pets','Accessories','Quebec','Montreal','2017-12-02','F',0,0,'F',"https://img.chewy.com/is/catalog/67364_MAIN._AC_SL1500_V1477926503_.jpg");
+INSERT INTO Ad VALUES(0,'jim','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Water bowl","titanium very shiny animals love it", "123 st laurent",
+'Pets','Accessories','Quebec','Montreal','2017-12-02','F',0,0,'F',"http://littlefriendspetsitting.com/bw/wp-content/uploads/2016/02/dog-water-bowl-300x255.jpg");
+INSERT INTO Ad VALUES(0,'jim','jim@gmail.com','514-333-1111',0,"ONLINE", "Owner",
+"House rat","she is very friendly and deserves a home loves peanut butter", "123 st laurent",
+'Pets','Rehoming','Quebec','Montreal','2017-12-02','F',0,0,'F',"https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-26__880.jpg");
+
+INSERT INTO Ad VALUES(0,'jim','jim@gmail.com','514-333-1111',800,"ONLINE", "Owner",
+"Wedding dress rental","the best dresses in town you can't afford", "123 st laurent",
+'Rent','Wedding Dresses','Quebec','Montreal','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'jim','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding photography","Very good and food at wedding must be included fixed price all night", "123 st laurent",
+'Services','Photographers','Quebec','Montreal','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+INSERT INTO Ad VALUES(0,'jim','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding dress","they are used", "123 st laurent",
+'BuyAndSell','Clothing','Quebec','Montreal','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'pat','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
+'Pets','Accessories','Quebec','Quebec City','2017-12-03','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
+
+INSERT INTO Ad VALUES(0,'pat','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+"Cowboy Boots","They have never been used", "Somewhere 5525",
+'BuyAndSell','Clothing','Quebec','Quebec City','2017-12-04','F',0,0,'F',"https://www.westernwear.co.uk/acatalog/2605%20Black.JPG");
+
+INSERT INTO Ad VALUES(0,'pat','something@gmail.com','514-235-2352',26.5,"ONLINE", "Owner",
+"Cowboy Hat","Authentic Swade", "Somewhere 5525",
+'BuyAndSell','Clothing','Quebec','Quebec City','2017-12-04','F',0,0,'F',"https://www.villagehatshop.com/photos/product/standard/4511390S57880/all/crusher-leather-outback-western-hat.jpg");
+
+INSERT INTO Ad VALUES(0,'pat','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"Cowboy Belt","leather brand new", "Somewhere 5525",'BuyAndSell','Clothing','Quebec','Quebec City','2017-12-04','F',0,0,'F',"https://sep.yimg.com/ay/yhst-79187215592273/western-texas-ranger-star-cowboy-concho-leather-belt-brown-24.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'mat','john@gmail.com','514-235-2352',120,"ONLINE", "Owner",
+"winter mens jacket","very fancy northface jacket", "Somewhere 5433",
+'BuyAndSell','Clothing','Quebec','Quebec City','2017-12-04','F',0,0,'F',"https://i.pinimg.com/736x/fe/a6/bd/fea6bd44e4cdb201839f3d95373bb3fa--north-face-mens-jackets-north-face-jacket.jpg");
+
+INSERT INTO Ad VALUES(0,'mat','john@gmail.com','514-235-2352',20,"ONLINE", "Owner",
+"Math tutor","20 per hour calculus", "Somewhere 5433",
+'Services','Tutors','Quebec','Quebec City','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'mat','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Physics tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Quebec','Quebec City','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'mat','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Chemistry tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Quebec','Quebec City','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'mat','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"HIFi Speakers","Sony Model 110s 2009", "Somewhere 5433",
+'Rent','Electronics','Quebec','Quebec City','2017-12-04','F',0,0,'F',"https://assets.logitech.com/assets/64801/4/speaker-system-z130.png");
+
+INSERT INTO Ad VALUES(0,'mat','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"stinky cat","found in dumpster next to my home", "Somewhere 5433",
+'Pets','Lost And Found','Quebec','Quebec City','2017-12-04','F',0,0,'F',"https://www.funnypica.com/wp-content/uploads/2012/12/Ugly-Cats-14.jpg");
+
+
+
+
+INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',15,"ONLINE", "Owner",
+"stinky Owl","Not a magical one", "Somewhere 911",
+'Pets','Lost And Found','Quebec','Quebec City','2017-12-04','F',0,0,'F',"http://www.the-leaky-cauldron.org/wp-content/uploads/assets/hedwig_400x400.jpg");
+
+INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"flying car","You need to know magic to drive it", "Somewhere 911",
+'Rent','Car','Quebec','Quebec City','2017-12-08','F',0,0,'F',"http://static.dnaindia.com/sites/default/files/2014/10/04/272366-harry-potter-flying-car.jpg");
+
+INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Hogwartz dorming","going away to save the world, subletting my dorm room", "Somewhere 911",
+'Rent','Apartments','Quebec','Quebec City','2017-12-08','F',0,0,'F',"https://lmutpg.lmu.edu/C20995_ustores/web/uploaded_images/store_14/rs_560x415-160325124421-1024-wizarding-world-of-harry-potter-hollywood8.jm.32516.jpg");
+
+INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',20,"ONLINE", "Owner",
+"Ipod","I have magic music on my ipod very rare 20 per day", "Somewhere 911",
+'Rent','Electronics','Quebec','Quebec City','2017-12-08','F',0,0,'F',"https://cdn.cultofmac.com/wp-content/uploads/2016/05/iPod_Ivan002web-780x520.jpg");
+
+INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Quiddish Coaching","My speciality is teaching to catch the gold ball", "Somewhere 911",
+'Services','Personal Trainers','Quebec','Quebec City','2017-12-08','F',0,0,'F',"https://www.jcu.edu.au/__data/assets/image/0012/230331/quidditch.jpeg");
+
+INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
+'Buy And Sell','Musical Instruments','Quebec','Quebec City','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'kara','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Leash","Used a handful of times", "123 st laurent",
+'Pets','Accessories','Quebec','Quebec City','2017-12-02','F',0,0,'F',"https://img.chewy.com/is/catalog/67364_MAIN._AC_SL1500_V1477926503_.jpg");
+
+INSERT INTO Ad VALUES(0,'kara','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Water bowl","titanium very shiny animals love it", "123 st laurent",
+'Pets','Accessories','Quebec','Quebec City','2017-12-02','F',0,0,'F',"http://littlefriendspetsitting.com/bw/wp-content/uploads/2016/02/dog-water-bowl-300x255.jpg");
+
+INSERT INTO Ad VALUES(0,'kara','jim@gmail.com','514-333-1111',0,"ONLINE", "Owner",
+"House rat","she is very friendly and deserves a home loves peanut butter", "123 st laurent",
+'Pets','Rehoming','Quebec','Quebec City','2017-12-02','F',0,0,'F',"https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-26__880.jpg");
+
+INSERT INTO Ad VALUES(0,'kara','jim@gmail.com','514-333-1111',800,"ONLINE", "Owner",
+"Wedding dress rental","the best dresses in town you can't afford", "123 st laurent",
+'Rent','Wedding Dresses','Quebec','Quebec City','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'kara','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding photography","Very good and food at wedding must be included fixed price all night", "123 st laurent",
+'Services','Photographers','Quebec','Quebec City','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'kara','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding dress","they are used", "123 st laurent",
+'BuyAndSell','Clothing','Quebec','Quebec City','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'michel','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
+'Pets','Accessories','Ontario','Ottowa','2017-12-03','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
+
+INSERT INTO Ad VALUES(0,'michel','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+"Cowboy Boots","They have never been used", "Somewhere 5525",
+'BuyAndSell','Clothing','Ontario','Ottowa','2017-12-04','F',0,0,'F',"https://www.westernwear.co.uk/acatalog/2605%20Black.JPG");
+
+INSERT INTO Ad VALUES(0,'michel','something@gmail.com','514-235-2352',26.5,"ONLINE", "Owner",
+"Cowboy Hat","Authentic Swade", "Somewhere 5525",
+'BuyAndSell','Clothing','Ontario','Ottowa','2017-12-04','F',0,0,'F',"https://www.villagehatshop.com/photos/product/standard/4511390S57880/all/crusher-leather-outback-western-hat.jpg");
+
+INSERT INTO Ad VALUES(0,'michel','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"Cowboy Belt","leather brand new", "Somewhere 5525",
+'BuyAndSell','Clothing','Ontario','Ottowa','2017-12-04','F',0,0,'F',"https://sep.yimg.com/ay/yhst-79187215592273/western-texas-ranger-star-cowboy-concho-leather-belt-brown-24.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'rick','john@gmail.com','514-235-2352',120,"ONLINE", "Owner",
+"winter mens jacket","very fancy northface jacket", "Somewhere 5433",
+'BuyAndSell','Clothing','Ontario','Ottowa','2017-12-04','F',0,0,'F',"https://i.pinimg.com/736x/fe/a6/bd/fea6bd44e4cdb201839f3d95373bb3fa--north-face-mens-jackets-north-face-jacket.jpg");
+
+INSERT INTO Ad VALUES(0,'rick','john@gmail.com','514-235-2352',20,"ONLINE", "Owner",
+"Math tutor","20 per hour calculus", "Somewhere 5433",
+'Services','Tutors','Ontario','Ottowa','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'rick','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Physics tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Ontario','Ottowa','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'rick','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Chemistry tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Ontario','Ottowa','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'rick','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"HIFi Speakers","Sony Model 110s 2009", "Somewhere 5433",
+'Rent','Electronics','Ontario','Ottowa','2017-12-04','F',0,0,'F',"https://assets.logitech.com/assets/64801/4/speaker-system-z130.png");
+
+INSERT INTO Ad VALUES(0,'rick','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"stinky cat","found in dumpster next to my home", "Somewhere 5433",
+'Pets','Lost And Found','Ontario','Ottowa','2017-12-04','F',0,0,'F',"https://www.funnypica.com/wp-content/uploads/2012/12/Ugly-Cats-14.jpg");
+
+
+
+
+INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',15,"ONLINE", "Owner",
+"stinky Owl","Not a magical one", "Somewhere 911",
+'Pets','Lost And Found','Ontario','Ottowa','2017-12-04','F',0,0,'F',"http://www.the-leaky-cauldron.org/wp-content/uploads/assets/hedwig_400x400.jpg");
+
+INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"flying car","You need to know magic to drive it", "Somewhere 911",
+'Rent','Car','Ontario','Ottowa','2017-12-08','F',0,0,'F',"http://static.dnaindia.com/sites/default/files/2014/10/04/272366-harry-potter-flying-car.jpg");
+
+INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Hogwartz dorming","going away to save the world, subletting my dorm room", "Somewhere 911",
+'Rent','Apartments','Ontario','Ottowa','2017-12-08','F',0,0,'F',"https://lmutpg.lmu.edu/C20995_ustores/web/uploaded_images/store_14/rs_560x415-160325124421-1024-wizarding-world-of-harry-potter-hollywood8.jm.32516.jpg");
+
+INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',20,"ONLINE", "Owner",
+"Ipod","I have magic music on my ipod very rare 20 per day", "Somewhere 911",
+'Rent','Electronics','Ontario','Ottowa','2017-12-08','F',0,0,'F',"https://cdn.cultofmac.com/wp-content/uploads/2016/05/iPod_Ivan002web-780x520.jpg");
+
+INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Quiddish Coaching","My speciality is teaching to catch the gold ball", "Somewhere 911",
+'Services','Personal Trainers','Ontario','Ottowa','2017-12-08','F',0,0,'F',"https://www.jcu.edu.au/__data/assets/image/0012/230331/quidditch.jpeg");
+
+INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
+'Buy And Sell','Musical Instruments','Ontario','Ottowa','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'kim','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Leash","Used a handful of times", "123 st laurent",
+'Pets','Accessories','Ontario','Ottowa','2017-12-02','F',0,0,'F',"https://img.chewy.com/is/catalog/67364_MAIN._AC_SL1500_V1477926503_.jpg");
+
+INSERT INTO Ad VALUES(0,'kim','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Water bowl","titanium very shiny animals love it", "123 st laurent",
+'Pets','Accessories','Ontario','Ottowa','2017-12-02','F',0,0,'F',"http://littlefriendspetsitting.com/bw/wp-content/uploads/2016/02/dog-water-bowl-300x255.jpg");
+
+INSERT INTO Ad VALUES(0,'kim','jim@gmail.com','514-333-1111',0,"ONLINE", "Owner",
+"House rat","she is very friendly and deserves a home loves peanut butter", "123 st laurent",
+'Pets','Rehoming','Ontario','Ottowa','2017-12-02','F',0,0,'F',"https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-26__880.jpg");
+
+INSERT INTO Ad VALUES(0,'kim','jim@gmail.com','514-333-1111',800,"ONLINE", "Owner",
+"Wedding dress rental","the best dresses in town you can't afford", "123 st laurent",
+'Rent','Wedding Dresses','Ontario','Ottowa','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'kim','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding photography","Very good and food at wedding must be included fixed price all night", "123 st laurent",
+'Services','Photographers','Ontario','Ottowa','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'kim','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding dress","they are used", "123 st laurent",
+'BuyAndSell','Clothing','Ontario','Ottowa','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+
+
+
+INSERT INTO Ad VALUES(0,'jamie','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
+'Pets','Accessories','Ontario','Toronto','2017-12-03','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
+
+INSERT INTO Ad VALUES(0,'jamie','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
+"Cowboy Boots","They have never been used", "Somewhere 5525",
+'BuyAndSell','Clothing','Ontario','Toronto','2017-12-04','F',0,0,'F',"https://www.westernwear.co.uk/acatalog/2605%20Black.JPG");
+
+INSERT INTO Ad VALUES(0,'jamie','something@gmail.com','514-235-2352',26.5,"ONLINE", "Owner",
+"Cowboy Hat","Authentic Swade", "Somewhere 5525",
+'BuyAndSell','Clothing','Ontario','Toronto','2017-12-04','F',0,0,'F',"https://www.villagehatshop.com/photos/product/standard/4511390S57880/all/crusher-leather-outback-western-hat.jpg");
+
+INSERT INTO Ad VALUES(0,'jamie','something@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"Cowboy Belt","leather brand new", "Somewhere 5525",
+'BuyAndSell','Clothing','Ontario','Toronto','2017-12-04','F',0,0,'F',"https://sep.yimg.com/ay/yhst-79187215592273/western-texas-ranger-star-cowboy-concho-leather-belt-brown-24.jpg");
+
+
+INSERT INTO Ad VALUES(0,'joe','john@gmail.com','514-235-2352',120,"ONLINE", "Owner",
+"winter mens jacket","very fancy northface jacket", "Somewhere 5433",
+'BuyAndSell','Clothing','Ontario','Toronto','2017-12-04','F',0,0,'F',"https://i.pinimg.com/736x/fe/a6/bd/fea6bd44e4cdb201839f3d95373bb3fa--north-face-mens-jackets-north-face-jacket.jpg");
+
+INSERT INTO Ad VALUES(0,'joe','john@gmail.com','514-235-2352',20,"ONLINE", "Owner",
+"Math tutor","20 per hour calculus", "Somewhere 5433",
+'Services','Tutors','Ontario','Toronto','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'joe','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Physics tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Ontario','Toronto','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'joe','john@gmail.com','514-235-2352',25,"ONLINE", "Owner",
+"Chemistry tutoring","high school level 25 per hour", "Somewhere 5433",
+'Services','Tutors','Ontario','Toronto','2017-12-04','F',0,0,'F',"http://img1.ibay.com.mv/is1/full/2017/09/item_1980769_617.jpg");
+
+INSERT INTO Ad VALUES(0,'joe','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"HIFi Speakers","Sony Model 110s 2009", "Somewhere 5433",
+'Rent','Electronics','Ontario','Toronto','2017-12-04','F',0,0,'F',"https://assets.logitech.com/assets/64801/4/speaker-system-z130.png");
+
+INSERT INTO Ad VALUES(0,'joe','john@gmail.com','514-235-2352',15,"ONLINE", "Owner",
+"stinky cat","found in dumpster next to my home", "Somewhere 5433",
+'Pets','Lost And Found','Ontario','Toronto','2017-12-04','F',0,0,'F',"https://www.funnypica.com/wp-content/uploads/2012/12/Ugly-Cats-14.jpg");
+
+
+
+
+INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',15,"ONLINE", "Owner",
+"stinky Owl","Not a magical one", "Somewhere 911",
+'Pets','Lost And Found','Ontario','Toronto','2017-12-04','F',0,0,'F',"http://www.the-leaky-cauldron.org/wp-content/uploads/assets/hedwig_400x400.jpg");
+
+INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"flying car","You need to know magic to drive it", "Somewhere 911",
+'Rent','Car','Ontario','Toronto','2017-12-08','F',0,0,'F',"http://static.dnaindia.com/sites/default/files/2014/10/04/272366-harry-potter-flying-car.jpg");
+
+INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Hogwartz dorming","going away to save the world, subletting my dorm room", "Somewhere 911",
+'Rent','Apartments','Ontario','Toronto','2017-12-08','F',0,0,'F',"https://lmutpg.lmu.edu/C20995_ustores/web/uploaded_images/store_14/rs_560x415-160325124421-1024-wizarding-world-of-harry-potter-hollywood8.jm.32516.jpg");
+
+INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',20,"ONLINE", "Owner",
+"Ipod","I have magic music on my ipod very rare 20 per day", "Somewhere 911",
+'Rent','Electronics','Ontario','Toronto','2017-12-08','F',0,0,'F',"https://cdn.cultofmac.com/wp-content/uploads/2016/05/iPod_Ivan002web-780x520.jpg");
+
+INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Quiddish Coaching","My speciality is teaching to catch the gold ball", "Somewhere 911",
+'Services','Personal Trainers','Ontario','Toronto','2017-12-08','F',0,0,'F',"https://www.jcu.edu.au/__data/assets/image/0012/230331/quidditch.jpeg");
+
+INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
+"Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
+'Buy And Sell','Musical Instruments','Ontario','Toronto','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+
+
+
+INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Leash","Used a handful of times", "123 st laurent",
+'Pets','Accessories','Ontario','Toronto','2017-12-02','F',0,0,'F',"https://img.chewy.com/is/catalog/67364_MAIN._AC_SL1500_V1477926503_.jpg");
+
+INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',20,"ONLINE", "Owner",
+"Dog Water bowl","titanium very shiny animals love it", "123 st laurent",
+'Pets','Accessories','Ontario','Toronto','2017-12-02','F',0,0,'F',"http://littlefriendspetsitting.com/bw/wp-content/uploads/2016/02/dog-water-bowl-300x255.jpg");
+
+INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',0,"ONLINE", "Owner",
+"House rat","she is very friendly and deserves a home loves peanut butter", "123 st laurent",
+'Pets','Rehoming','Ontario','Toronto','2017-12-02','F',0,0,'F',"https://static.boredpanda.com/blog/wp-content/uploads/2015/04/cute-pet-rats-26__880.jpg");
+
+INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',800,"ONLINE", "Owner",
+"Wedding dress rental","the best dresses in town you can't afford", "123 st laurent",
+'Rent','Wedding Dresses','Ontario','Toronto','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding photography","Very good and food at wedding must be included fixed price all night", "123 st laurent",
+'Services','Photographers','Ontario','Toronto','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',100,"ONLINE", "Owner",
+"Wedding dress","they are used", "123 st laurent",
+'BuyAndSell','Clothing','Ontario','Toronto','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
+
+
+
+
+
+CREATE TABLE Purchase (
+    Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    SoldBy varchar(50),
+    Username varchar(50),
+    AdId int,
+    CardType varchar(10) NOT NULL,
+    CardNumber varchar(50) NOT NULL,
+    Amount float NOT NULL,
+    PurchaseTime timestamp NOT NULL,
+    BoughtThrough varchar(10) NOT NULL DEFAULT "ONLINE",
+    ItemPurchased varchar(10) NOT NULL
+);
 
 
 CREATE TABLE Physicalstore (
