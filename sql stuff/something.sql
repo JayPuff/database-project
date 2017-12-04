@@ -224,8 +224,8 @@ CREATE TABLE Ad (
 
 
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
-"Selling Dog Toys","Hey guys, Im selling these dog toys! Thanks!", "Somewhere 5525",
-'Pets','Accessories','Quebec','Montreal','2017-12-03','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
+"aaaaaaaaaaaaa","bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "Somewhere 5525",
+'Pets','Accessories','Quebec','Montreal','2017-11-05','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',40,"ONLINE", "Owner",
 "Cowboy Boots","They have never been used", "Somewhere 5525",
 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"https://www.westernwear.co.uk/acatalog/2605%20Black.JPG");
@@ -292,7 +292,7 @@ INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',200,"ONLINE", "
 'Services','Personal Trainers','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://www.jcu.edu.au/__data/assets/image/0012/230331/quidditch.jpeg");
 INSERT INTO Ad VALUES(0,'harry','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
 "Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
-'Buy And Sell','Musical Instruments','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+'BuyAndSell','Musical Instruments','Quebec','Montreal','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
 
 
 
@@ -385,7 +385,7 @@ INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',200,"ONLINE", "
 
 INSERT INTO Ad VALUES(0,'sarah','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
 "Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
-'Buy And Sell','Musical Instruments','Quebec','Quebec City','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+'BuyAndSell','Musical Instruments','Quebec','Quebec City','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
 
 
 
@@ -482,7 +482,7 @@ INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',200,"ONLINE", "O
 
 INSERT INTO Ad VALUES(0,'tony','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
 "Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
-'Buy And Sell','Musical Instruments','Ontario','Ottowa','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+'BuyAndSell','Musical Instruments','Ontario','Ottowa','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
 
 
 
@@ -579,7 +579,7 @@ INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',200,"ONLINE", 
 
 INSERT INTO Ad VALUES(0,'maggie','harry@gmail.com','514-205-1111',200,"ONLINE", "Owner",
 "Magic Guitar","Its magic if you are really good at playing it", "Somewhere 911",
-'Buy And Sell','Musical Instruments','Ontario','Toronto','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
+'BuyAndSell','Musical Instruments','Ontario','Toronto','2017-12-08','F',0,0,'F',"https://www.ultimate-guitar.com/static/article/lesson/4/4084_0_wide_ver1496106758.jpg");
 
 
 
@@ -645,7 +645,7 @@ The following reports must be supported by the OCN system:
 1. Give a list of user(s) who have posted the highest number of ads in each category.
 
 
-SELECT DISTINCT(t1.Category), t1.Username, t1.Total FROM (SELECT u.Username, a.Category, COUNT(a.Id) as Total FROM User u, Ad a WHERE u.Username = a.Username GROUP BY a.Category, a.Username) as t1 GROUP BY Category HAVING MAX(Total);
+SELECT t1.Category, t1.Username, t1.Total FROM (SELECT u.Username, a.Category, COUNT(a.Id) as Total FROM User u, Ad a WHERE u.Username = a.Username GROUP BY a.Category, a.Username ORDER BY COUNT(a.Id) DESC) as t1 GROUP BY Category;
 
 2. Give the details of the items posted within the last 10 days in buying/selling category.
 
