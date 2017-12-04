@@ -282,6 +282,22 @@
             <? if($mode == "AD") { ?>
                 <h2> Purchase Complete </h2>
                 <p> Transaction ID: <? echo $transactionID; ?> </p>
+
+                <hr>
+                <p> Rate your purchase! </p>
+                <select id="rating">
+                    <option value='1'> 1 Star </option>
+                    <option value='2'> 2 Stars </option>
+                    <option value='3'> 3 Stars </option>
+                    <option value='4'> 4 Stars </option>
+                    <option value='5'> 5 Stars </option>
+                </select>
+
+                <script>
+                    <? echo "var id = " . $ad["Id"] . ";" ?>
+                </script>
+
+                <button type="button" onclick="rate()"> Rate! </button>
             <? } ?>
 
         </div>
@@ -292,7 +308,7 @@
 
     
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script src="purchase.js" type="text/javascript"> </script>
+    <script src="makepurchase.js" type="text/javascript"> </script>
 
   </body>
 </html>

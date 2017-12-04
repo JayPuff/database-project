@@ -669,15 +669,20 @@ SELECT Username, Category, AVG(Rating) FROM Ad WHERE Sold = 'T' GROUP BY Usernam
 6. For a given physical store manager, generate a report that indicates the daily revenue and
 the total number of transactions “online payments” of each physical store belonging to
 the manager for the past 15 days.
+
+
 7. Is it profitable for a seller to rent store in SL-1 or SL-4 on weekends or weekdays.
+
 8. Generate a report that indicates all different types of items sold by each physical store
 located in a given province.
 
-5
+
 
 9. For a given seller, generate a report that indicates the amount they have to pay for
 delivery services per day for the coming 7 days, and the total amount they have paid per
 day for the past 7 days.
+
+
 10. Create a report of your choice that you see needed by every user type of the OCN system.
 The report should generate significant information/data for each one of the OCN system
 user types: admin, seller, buyer/regular user, store manager. This means that you need to
