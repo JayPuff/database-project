@@ -91,6 +91,10 @@ function showAdRight($ad) {
 
   echo "<hr> <br>";
 
+  echo "<img style='width:auto; height:200px; display:block;' src='" . $ad["Img"]  ."' >";
+
+  echo "<hr> <br>";
+
   echo "<h3> Get in contact with " . $ad["Username"] . '</h3>';
   echo "<p> Phone number: " . $ad["PhoneNumber"] . "</p>";
   echo "<p> Email: " . $ad["Email"] . "</p>";

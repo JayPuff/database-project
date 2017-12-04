@@ -9,6 +9,14 @@
         window.location.href = "/userpage.php?myads=true";
     }
 
+    window.viewAllAds = function() {
+        window.location.href = "/userpage.php";
+    }
+
+    window.membership = function() {
+        window.location.href = "/purchase.php?type=membership";
+    }
+
     window.newAd = function() {
         window.location.href = "/newad.php";
     }

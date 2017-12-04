@@ -47,7 +47,7 @@
 
     $cities = $stmt->fetchAll();
 
-    $stmt = $conn->prepare("SELECT DISTINCT a.Username FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE'"); 
+    $stmt = $conn->prepare("SELECT DISTINCT a.Username FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' AND a.Deleted='F'"); 
     $stmt->execute();
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -69,7 +69,7 @@
             $ads = $stmt->fetchAll();
         } 
     } else {
-        $stmt = $conn->prepare("SELECT a.* FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' ORDER BY a.Promotion DESC");
+        $stmt = $conn->prepare("SELECT a.* FROM Ad a, User u WHERE u.Username = a.Username AND DATE_ADD(a.Posted, INTERVAL u.Membership DAY) >= CURDATE() AND a.Available='ONLINE' AND a.Deleted='F' ORDER BY a.Promotion DESC");
         $stmt->bindParam(':username', $_SESSION["Username"]);
         
         $stmt->execute();
@@ -126,7 +126,7 @@
         <div class="aside"> 
             <button type="button" onclick="viewMyAds()"> View my ADS </button>
             <button type="button" onclick="newAd()"> Post new AD </button>
-            <button type="button" onclick="something()"> Change Membership </button>
+            <button type="button" onclick="membership()"> Change Membership </button>
             <hr>
 
             <h2> Browse ADS </h2>
@@ -164,7 +164,7 @@
 
     <? if($_SESSION["Usertype"] == "ADMIN") { ?>
         <div class="aside"> 
-            <button type="button" onclick="something()"> View all ADS </button>
+            <button type="button" onclick="viewAllAds()"> View all ADS </button>
             <button type="button" onclick="something()"> View Purchase Details </button>
             <hr>
 

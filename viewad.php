@@ -80,13 +80,14 @@
             <button type="button" onclick="back()"> Back </button>
             <hr>
 
-            <?  if($mine) {  ?>
+        
             
             <button type="button" onclick="editAd()"> Edit Info </button>
             <button style="color:darkred;" type="button" onclick="deleteAd()"> Delete AD </button>
             <button type="button" onclick="promote()"> Promote this AD </button>
             <hr>
-            <? } else { ?>
+            
+            <? if(!$mine) { ?>
             
                 <button type="button" onclick="buy()"> Purchase Online </button>
 

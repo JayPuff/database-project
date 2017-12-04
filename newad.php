@@ -63,7 +63,7 @@
         
 
         try {
-          $stmt = $conn->prepare("INSERT INTO Ad VALUES (0, :username, :email, :phonenumber, :price, :available, :forsaleby, :title, :addesc, :addr, :category, :subcategory, :province, :city, CURDATE(), 'F', 0,0)");
+          $stmt = $conn->prepare("INSERT INTO Ad VALUES (0, :username, :email, :phonenumber, :price, :available, :forsaleby, :title, :addesc, :addr, :category, :subcategory, :province, :city, CURDATE(), 'F', 0,0,'F',:img)");
           
           //$number = 0;
           
@@ -77,6 +77,7 @@
           $stmt->bindParam(':forsaleby', $_POST["forsaleby"]);
           $stmt->bindParam(':title', $_POST["title"]);
           $stmt->bindParam(':addesc', $_POST["addesc"]);
+          $stmt->bindParam(':img', $_POST["img"]);
           $stmt->bindParam(':addr', $_POST["addr"]);
           $stmt->bindParam(':category', $_POST["category"]);
           $stmt->bindParam(':subcategory', $_POST[$_POST["category"] . "-subcategory"]);
@@ -119,6 +120,7 @@
               <div> Available: <select required name='available'> <option value='ONLINE'> Online </option> <option value='IN STORE'> In Store </option> </select> </div> <br>
               <div> For Sale by: <select required name='forsaleby' > <option value='OWNER'> Owner </option> <option value='BUSINESS'> Business </option> </select> </select> </div> <br>";
 
+              echo "<div> Image URL: <input required name='img' type='text'> </div> <br>";
               echo "<div>";
               echo "Category: ";
         

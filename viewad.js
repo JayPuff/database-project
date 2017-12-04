@@ -25,4 +25,12 @@
     window.back = function() {
         window.location.href = "/userpage.php";
     }
+
+    window.promote = function() {
+        window.location.href = "/purchase.php?type=promotion&id=" + id;
+    }
+
+    window.buy = function() {
+        window.location.href = "/purchase.php?type=ad&id=" + id;
+    }
 })();

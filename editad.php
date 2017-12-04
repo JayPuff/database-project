@@ -80,8 +80,9 @@
       
       $ad = $ads[0];
       
-      $mine = ($ad["Username"] == $_SESSION["Username"]);
+      $mine = ($ad["Username"] == $_SESSION["Username"]) || $_SESSION["Usertype"] == "ADMIN";
 
+      
       if(!$mine) {
         echo '<div class="aside"> </div><div class="content"><h1> You do not have permission to edit this AD </h1> </div>';
         return;
@@ -95,13 +96,12 @@
         
 
         try {
-          $stmt = $conn->prepare("UPDATE Ad SET Email=:email, PhoneNumber=:phonenumber, Price=:price, Available=:available, ForSaleBy=:forsaleby, Title=:title, AdDesc=:addesc, Addr=:addr, Category=:category, SubCategory=:subcategory, Province=:province, City=:city WHERE Id=:id AND Username=:username");
+          $stmt = $conn->prepare("UPDATE Ad SET Email=:email, PhoneNumber=:phonenumber, Price=:price, Available=:available, ForSaleBy=:forsaleby, Title=:title, AdDesc=:addesc, Addr=:addr, Category=:category, SubCategory=:subcategory, Province=:province, City=:city WHERE Id=:id");
           
           
           //$number = 0;
           // Prepare statement
           $stmt->bindParam(':id', $_GET["id"]);
-          $stmt->bindParam(':username', $_SESSION["Username"]);
 
           $stmt->bindParam(':email', $_POST["email"]);
           $stmt->bindParam(':phonenumber', $_POST["phonenumber"]);

@@ -53,7 +53,7 @@
       
       $ad = $ads[0];
       
-      $mine = ($ad["Username"] == $_SESSION["Username"]);
+      $mine = ($ad["Username"] == $_SESSION["Username"]) || $_SESSION["Usertype"] == "ADMIN";
 
       if(!$mine) {
         echo '<div class="aside"> </div><div class="content"><h1> You do not have permission to delete this AD </h1> </div>';
@@ -68,13 +68,12 @@
         
 
         try {
-          $stmt = $conn->prepare("DELETE FROM Ad WHERE Username=:username AND Id=:id");
+          $stmt = $conn->prepare("UPDATE Ad SET Deleted='T' WHERE Id=:id");
           
           
           //$number = 0;
           // Prepare statement
           $stmt->bindParam(':id', $_GET["id"]);
-          $stmt->bindParam(':username', $_SESSION["Username"]);
 
           
           // execute the query
