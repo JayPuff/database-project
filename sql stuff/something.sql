@@ -5,6 +5,8 @@ DROP TABLE Category;
 DROP TABLE SubCategory;
 DROP TABLE Ad;
 DROP TABLE Purchase;
+DROP TABLE Sl;
+DROP TABLE PhysicalStore;
 
 CREATE TABLE User (
     Username varchar(50) PRIMARY KEY NOT NULL,
@@ -621,22 +623,43 @@ CREATE TABLE Purchase (
     Amount float NOT NULL,
     PurchaseTime timestamp NOT NULL,
     BoughtThrough varchar(10) NOT NULL DEFAULT "ONLINE",
-    ItemPurchased varchar(10) NOT NULL
+    ItemPurchased varchar(10) NOT NULL,
+    Authorized varchar(1) NOT NULL DEFAULT 'T'
 );
 
 
-CREATE TABLE Physicalstore (
-    PSID int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    status varchar(50) NOT NULL DEFAULT "PENDING",
-    weekType varchar(50) NOT NULL,
-    strategicLocation varchar(50) NOT NULL,
-    totalCost float NOT NULL,
-    delivery float NOT NULL,
-    startTime int NOT NULL,
-    endTime int NOT NULL,
-    date Date,
-    tempID int NOT NULL
+CREATE TABLE Sl (
+    SlName varchar(20) PRIMARY KEY NOT NULL,
+    Fee float NOT NULL DEFAULT 5,
+    People int NOT NULL DEFAULT 0
 );
+
+INSERT INTO Sl VALUES('SL-1', 20, 400);
+INSERT INTO Sl VALUES('SL-2', 15, 300);
+INSERT INTO Sl VALUES('SL-3', 10, 200);
+INSERT INTO Sl VALUES('SL-4', 5, 100);
+
+
+CREATE TABLE PhysicalStore (
+    Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Username varchar(50) NOT NULL,
+    PaymentId int NOT NULL,
+    SlName varchar(20) NOT NULL,
+    Delivery varchar(1) NOT NULL DEFAULT 'F',
+    RequestedDate Date NOT NULL,
+    SubmittedDate Date NOT NULL,
+    Duration int NOT NULL,
+    RequestedTime int NOT NULL,
+    WeekType varchar(20) NOT NULL DEFAULT 'WEEKDAY',
+    Status varchar(30) NOT NULL DEFAULT 'PENDING'
+);
+
+
+INSERT INTO PhysicalStore VALUES(0,'nick',1,'SL-1','F',CURDATE(),CURDATE(),3,15,'WEEKDAY','PENDING');
+INSERT INTO PhysicalStore VALUES(0,'nick',2,'SL-2','F',CURDATE(),CURDATE(),3,65,'WEEKDAY','PENDING');
+INSERT INTO PhysicalStore VALUES(0,'nick',3,'SL-1','F',CURDATE(),CURDATE(),3,33,'WEEKDAY','PENDING');
+
+
 
 /*
 QUERIES

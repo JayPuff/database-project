@@ -83,6 +83,17 @@ function displayAds($ads,$mode = "NORMAL") {
     }
 }
 
+function displayRequests($requests) {
+    for($i = 0; $i < count($requests); $i++) {
+        echo "<div class='ad'><h2>" . $requests[$i]["SlName"] . '</h2>';
+        echo "<p>"  . $requests[$i]["Username"] .  "</p>";
+        echo "<p>" . $requests[$i]["RequestedDate"] . "</p>";
+        echo "<button type='button' onclick='approve(" . $requests[$i]["Id"] .  ")' > Approve </button>";
+        echo "<button type='button' onclick='reject(" . $requests[$i]["Id"]  .")' > Reject </button>";
+        echo "</div>";
+    }
+}
+
 function showAdRight($ad) {
   echo "<p style='color:#666666;'>" . str_replace("-"," ",$ad["Province"]) . " &gt; " . $ad["City"] . " &gt; "  . $ad["Category"] . " &gt; " . $ad["SubCategory"] . "</p>";
   echo "<h1>" . $ad["Title"] . "</h1>";

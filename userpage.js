@@ -17,6 +17,10 @@
         window.location.href = "/purchase.php?type=membership";
     }
 
+    window.requests = function() {
+        window.location.href = "/requests.php";
+    }
+
     window.newAd = function() {
         window.location.href = "/newad.php";
     }
