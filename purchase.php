@@ -47,6 +47,13 @@
          }
 
          $mode = "PROMOTION";
+    } else if ($_GET["type"] == "store") {
+        if (!isset($_GET["requesteddate"]) || !isset($_GET["requestedtime"]) || !isset($_GET["duration"]) || !isset($_GET["delivery"]) || !isset($_GET["location"])) {
+            echo '<div class="aside"> </div><div class="content"><h1> No parameters needed for store purchase </h1> </div>';
+            return;
+         }
+
+         $mode = "STORE";
     }
 
 
@@ -110,6 +117,10 @@
                 <button type="button" onclick="window.location.href='/viewad.php?id= <?  echo $_GET["id"]; ?> ';"> Back </button>
             <? } ?>
 
+            <? if($mode == "STORE") { ?>
+                <button type="button" onclick="window.location.href='/rent.php';"> Back </button>
+            <? } ?>
+
             <hr>
         </div>
 
@@ -149,6 +160,11 @@
                 <p> For: <? echo $ad["Price"]  ?> </p>
             <? } ?>
 
+            <? if($mode == "STORE") { ?>
+                <h2> Pre-purchase for Store Rent </h2>
+                <p> Payment will only be authorized once an admin accepts this request </p>
+            <? } ?>
+
 
             <hr> <br>
             <? purchaseInfo(); ?>
@@ -158,8 +174,19 @@
         <script>
             <? echo "var type = '" . $mode . "';" ?>
         </script>
+
+        <? if($mode == "STORE") { ?>
+            <script>
+                <? echo "var requesteddate = '" . $_GET["requesteddate"] . "'; "; ?>
+                <? echo "var requestedtime = " . $_GET["requestedtime"] . "; "; ?>
+                <? echo "var loc = '" . $_GET["location"] . "'; "; ?>
+                <? echo "var delivery = '" . $_GET["delivery"] . "'; "; ?>
+                <? echo "var duration = " . $_GET["duration"] . "; "; ?>
+            </script>
+        <? }  ?>
+
         
-        <? if($mode != "MEMBERSHIP") { ?>
+        <? if($mode != "MEMBERSHIP" && $mode != "STORE") { ?>
             <script>
                 <? echo "var id = " . $ad["Id"] . ";" ?>
             </script>

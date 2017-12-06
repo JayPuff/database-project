@@ -13,6 +13,10 @@
         window.location.href = "/userpage.php";
     }
 
+    window.rent = function() {
+        window.location.href = "/rent.php";
+    }
+
     window.membership = function() {
         window.location.href = "/purchase.php?type=membership";
     }

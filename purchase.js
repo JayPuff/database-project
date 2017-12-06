@@ -19,8 +19,14 @@
             //console.log(id);
         }
 
-        if(confirm("Are you sure you want to confirm?")) {
-            window.location.href = "/makepurchase.php?type=" + type + "&price=" + price + "&card=" + $('#type').val() + "&number=" + $('#number').val() + "&id=" + id;
+        if(type != "STORE") {
+            if(confirm("Are you sure you want to confirm?")) {
+                window.location.href = "/makepurchase.php?type=" + type + "&price=" + price + "&card=" + $('#type').val() + "&number=" + $('#number').val() + "&id=" + id;
+            }
+        } else {
+            if(confirm("Are you sure you want to confirm?")) {
+                window.location.href = "/makepurchase.php?type=" + type + "&requesteddate=" + requesteddate + "&requestedtime=" + requestedtime + "&location=" + loc + "&duration=" + duration + "&delivery=" + delivery + "&card=" + $('#type').val() + "&number=" + $('#number').val();
+            }
         }
     }
 

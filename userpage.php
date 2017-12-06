@@ -127,6 +127,7 @@
             <button type="button" onclick="viewMyAds()"> View my ADS </button>
             <button type="button" onclick="newAd()"> Post new AD </button>
             <button type="button" onclick="membership()"> Change Membership </button>
+            <button type="button" onclick="rent()"> Rent a Physical Store </button>
             <hr>
 
             <h2> Browse ADS </h2>
