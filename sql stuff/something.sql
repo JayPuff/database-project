@@ -627,6 +627,10 @@ CREATE TABLE Purchase (
     Authorized varchar(1) NOT NULL DEFAULT 'T'
 );
 
+INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-22','ONLINE','STORE','F');
+INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-23','ONLINE','STORE','F');
+INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-24','ONLINE','STORE','F');
+
 
 CREATE TABLE Sl (
     SlName varchar(20) PRIMARY KEY NOT NULL,
@@ -642,6 +646,7 @@ INSERT INTO Sl VALUES('SL-4', 5, 100);
 
 CREATE TABLE PhysicalStore (
     Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    AdminUsername varchar(50),
     Username varchar(50) NOT NULL,
     PaymentId int NOT NULL,
     SlName varchar(20) NOT NULL,
@@ -655,9 +660,9 @@ CREATE TABLE PhysicalStore (
 );
 
 
-INSERT INTO PhysicalStore VALUES(0,'nick',1,'SL-1','F',CURDATE(),CURDATE(),3,15,'WEEKDAY','PENDING');
-INSERT INTO PhysicalStore VALUES(0,'nick',2,'SL-2','F',CURDATE(),CURDATE(),3,65,'WEEKDAY','PENDING');
-INSERT INTO PhysicalStore VALUES(0,'nick',3,'SL-1','F',CURDATE(),CURDATE(),3,33,'WEEKDAY','PENDING');
+INSERT INTO PhysicalStore VALUES(0,NULL,'nick',1,'SL-1','F',CURDATE(),CURDATE(),3,15,'WEEKDAY','PENDING');
+INSERT INTO PhysicalStore VALUES(0,NULL,'nick',2,'SL-2','F',CURDATE(),CURDATE(),3,65,'WEEKDAY','PENDING');
+INSERT INTO PhysicalStore VALUES(0,NULL,'nick',3,'SL-1','F',CURDATE(),CURDATE(),3,33,'WEEKDAY','PENDING');
 
 
 

@@ -86,8 +86,8 @@ function displayAds($ads,$mode = "NORMAL") {
 function displayRequests($requests) {
     for($i = 0; $i < count($requests); $i++) {
         echo "<div class='ad'><h2>" . $requests[$i]["SlName"] . '</h2>';
-        echo "<p>"  . $requests[$i]["Username"] .  "</p>";
-        echo "<p>" . $requests[$i]["RequestedDate"] . "</p>";
+        echo "<p>"  . $requests[$i]["Username"] . " requested on " . $requests[$i]["RequestedDate"]  . "</p>";
+        echo "<p> Time: " . $requests[$i]["RequestedTime"] . "h 00 - Duration: " . $requests[$i]["Duration"]  . "</p>";
         echo "<button type='button' onclick='approve(" . $requests[$i]["Id"] .  ")' > Approve </button>";
         echo "<button type='button' onclick='reject(" . $requests[$i]["Id"]  .")' > Reject </button>";
         echo "</div>";

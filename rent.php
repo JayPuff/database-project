@@ -56,10 +56,10 @@
     if($showform) {
       echo "<form class='ad-form' action='rent.php' method='post'>
               <h2> Rent Physical Store Request </h2>
-              <div> Requested Date: <input placeholder='2017-11-24' required name='requesteddate' type='text'/> </div> <br>
-              <div> Requested Time: <input required name='requestedtime' type='number'> </div> <br>
-              <div> Duration: <input required name='duration' type='number' > </div> <br>
-              <div> Delivery: <select required name='delivery'> <option value='T'> Yes </option> <option value='F'> No </option> </select> </div> <br>";
+              <div> Requested Date: <input id='requesteddate' placeholder='2017-11-24' required name='requesteddate' type='text'/> </div> <br>
+              <div> Requested Time: <input required name='requestedtime' id='requestedtime' type='number'> </div> <br>
+              <div> Duration: <input required name='duration' id='duration' type='number' > </div> <br>
+              <div> Delivery: <select required id='delivery' name='delivery'> <option value='T'> Yes </option> <option value='F'> No </option> </select> </div> <br>";
 
               
               echo "Location: ";
@@ -75,7 +75,7 @@
               echo "</select>";
       
       
-
+              echo "<br> Cost: <span id='cost'> 0 </span> <br>";
       echo "<button type='submit' > REQUEST </button>
             </form>";
      } ?>  
@@ -86,6 +86,7 @@
 
     
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="rent.js"></script>
   </body>
 </html>
 

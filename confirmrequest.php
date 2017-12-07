@@ -37,10 +37,10 @@
     $requests = array();
     $request;
 
-    $updateStatement = "UPDATE PhysicalStore SET Status='REJECTED' WHERE Id=:id";
+    $updateStatement = "UPDATE PhysicalStore SET Status='REJECTED',AdminUsername=:admin WHERE Id=:id";
 
     if($type == 'APPROVE') {
-        $updateStatement = "UPDATE PhysicalStore SET Status='APPROVED' WHERE Id=:id";
+        $updateStatement = "UPDATE PhysicalStore SET Status='APPROVED',AdminUsername=:admin WHERE Id=:id";
     }
 
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -63,6 +63,7 @@
    
     $stmt = $conn->prepare($updateStatement);
     $stmt->bindParam(':id', $_GET["id"]);
+    $stmt->bindParam(':admin', $_SESSION["Username"]);
     
     $stmt->execute();
 

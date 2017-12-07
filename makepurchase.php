@@ -62,6 +62,35 @@
          }
 
          $mode = "PROMOTION";
+    } else if ($_GET["type"] == "STORE") {
+        if (!isset($_GET["requesteddate"])) {
+            echo '<div class="aside"> </div><div class="content"><h1> No requested date for renting specified. </h1> </div>';
+            return;
+         }
+
+         if (!isset($_GET["requestedtime"])) {
+            echo '<div class="aside"> </div><div class="content"><h1> No requested time for renting specified. </h1> </div>';
+            return;
+         }
+
+         if (!isset($_GET["location"])) {
+            echo '<div class="aside"> </div><div class="content"><h1> No requested location for renting specified. </h1> </div>';
+            return;
+         }
+
+         if (!isset($_GET["duration"])) {
+            echo '<div class="aside"> </div><div class="content"><h1> No requested duration for renting specified. </h1> </div>';
+            return;
+         }
+
+         if (!isset($_GET["delivery"])) {
+            echo '<div class="aside"> </div><div class="content"><h1> No requested delivery for renting specified. </h1> </div>';
+            return;
+         }
+
+
+
+         $mode = "STORE";
     }
 
 
@@ -245,7 +274,84 @@
         }
     }
 
-    
+    if($mode == "STORE") {
+        try {
+            $weekday = "WEEKDAY";
+
+            function isWeekend($date) {
+                return (date('N', strtotime($date)) >= 6);
+            }
+
+            if(isWeekend($_GET["requesteddate"])) {
+                $weekday = "WEEKEND";
+            }
+
+            $amount = 0;
+            $deliveryfee = 0;
+
+            if($weekday == "WEEKDAY") {
+                $amount = 10 * intval($_GET["duration"]);
+                if($_GET["delivery"] == 'T') {
+                    $deliveryfee = 5 * intval($_GET["duration"]);
+                }
+            } else {
+                $amount = 15 * intval($_GET["duration"]);
+                if($_GET["delivery"] == 'T') {
+                    $deliveryfee = 10 * intval($_GET["duration"]);
+                }
+            }
+            
+            if($_GET["location"] == "SL-1") {
+                $amount = $amount * 1.20;
+            } else if($_GET["location"] == "SL-2") {
+                $amount = $amount * 1.15;
+            } else if($_GET["location"] == "SL-3") {
+                $amount = $amount * 1.10;
+            } else if($_GET["location"] == "SL-4") {
+                $amount = $amount * 1.05;
+            }
+
+            $amount = $amount + $deliveryfee;
+
+            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,'',:username,NULL,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','STORE','F')");
+            // Prepare statement
+            $stmt->bindParam(':username', $_SESSION["Username"]);
+            $stmt->bindParam(':cardtype', $_GET["card"]);
+            $stmt->bindParam(':cardnumber', $_GET["number"]);
+            $stmt->bindParam(':amount', intval($amount));
+
+           
+  
+            // execute the query
+            $result = $stmt->execute(); 
+
+            if($result) {
+                $transactionID = $conn->lastInsertId();
+            }
+            
+        } catch (PDOException $e) {
+            // $error =  array('error' => $e->getMessage());
+            // echo json_encode($error);
+        }
+
+
+        if($result) {
+            $stmt = $conn->prepare("INSERT INTO PhysicalStore VALUES(0,NULL,:username,:paymentid,:sl,:delivery,:requesteddate,CURDATE(),:duration,:requestedtime,:week,'PENDING')");
+            // Prepare statement
+            $stmt->bindParam(':paymentid', $transactionID);
+            $stmt->bindParam(':username', $_SESSION["Username"]);
+            $stmt->bindParam(':sl', $_GET["location"]);
+            $stmt->bindParam(':delivery', $_GET["delivery"]);
+            $stmt->bindParam(':requesteddate', $_GET["requesteddate"]);
+            $stmt->bindParam(':duration', intval($_GET["duration"]));
+            $stmt->bindParam(':requestedtime', $_GET["requestedtime"]);
+            $stmt->bindParam(':week', $weekday);
+           
+  
+            // execute the query
+            $result = $stmt->execute();     
+        }
+    }
     
 
     ?>
@@ -263,6 +369,10 @@
 
             <? if($mode == "AD") { ?>
                 Ad Purchase Confirmation
+            <? } ?>
+
+            <? if($mode == "STORE") { ?>
+                Form submission and pre-payment Confirmation
             <? } ?>
 
             <hr>
@@ -298,6 +408,12 @@
                 </script>
 
                 <button type="button" onclick="rate()"> Rate! </button>
+            <? } ?>
+
+            <? if($mode == "STORE") { ?>
+                <h2> Purchase Complete </h2>
+                <p> Transaction ID: <? echo $transactionID; ?> </p>
+                <p> You will be emailed, when your rental is approved! </p>
             <? } ?>
 
         </div>
