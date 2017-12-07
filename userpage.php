@@ -166,7 +166,7 @@
     <? if($_SESSION["Usertype"] == "ADMIN") { ?>
         <div class="aside"> 
             <button type="button" onclick="viewAllAds()"> View all ADS </button>
-            <button type="button" onclick="something()"> View Purchase Details </button>
+            <button type="button" onclick="purchaseDetails()"> View Purchase Details </button>
             <button type="button" onclick="requests()"> View Store Requests </button>
             <hr>
 

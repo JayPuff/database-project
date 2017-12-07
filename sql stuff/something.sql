@@ -224,6 +224,9 @@ CREATE TABLE Ad (
 -- "winter jacket for sale","it's really good!", "Somewhere 5525",
 -- 'BuyAndSell','Clothing','Quebec','Montreal','2017-12-04','F',0,0,'F',"");
 
+INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"IN STORE", "Owner",
+"aaaaaaaaaaaaa","bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "Somewhere 5525",
+'Pets','Accessories','Quebec','Montreal','2017-11-05','F',0,0,'F',"http://allthebestdogstuff.com/wp-content/uploads/KONG-Air-Dog-Squeakair-Birthday-Balls-Dog-Toy-Medium-Colors-Vary-3-Balls-0.jpg");
 
 INSERT INTO Ad VALUES(0,'nick','something@gmail.com','514-235-2352',25,"ONLINE", "Owner",
 "aaaaaaaaaaaaa","bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "Somewhere 5525",
@@ -632,6 +635,8 @@ INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-
 INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-24','ONLINE','STORE','F');
 
 
+
+
 CREATE TABLE Sl (
     SlName varchar(20) PRIMARY KEY NOT NULL,
     Fee float NOT NULL DEFAULT 5,
@@ -664,6 +669,42 @@ INSERT INTO PhysicalStore VALUES(0,NULL,'nick',1,'SL-1','F',CURDATE(),CURDATE(),
 INSERT INTO PhysicalStore VALUES(0,NULL,'nick',2,'SL-2','F',CURDATE(),CURDATE(),3,65,'WEEKDAY','PENDING');
 INSERT INTO PhysicalStore VALUES(0,NULL,'nick',3,'SL-1','F',CURDATE(),CURDATE(),3,33,'WEEKDAY','PENDING');
 
+
+
+DROP EVENT Step1;
+DROP EVENT Step2;
+DROP EVENT Step3;
+
+
+CREATE EVENT Step1 
+ON SCHEDULE EVERY '1' DAY 
+STARTS '2017-12-06 23:00:00'
+DO
+DROP TABLE ExternalPurchase;
+
+CREATE EVENT Step2 
+ON SCHEDULE EVERY '1' DAY 
+STARTS '2017-12-06 23:00:30'
+DO
+CREATE TABLE ExternalPurchase (
+    Id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    SoldBy varchar(50),
+    Username varchar(50),
+    AdId int,
+    CardType varchar(10) NOT NULL,
+    CardNumber varchar(50) NOT NULL,
+    Amount float NOT NULL,
+    PurchaseTime timestamp NOT NULL,
+    BoughtThrough varchar(10) NOT NULL DEFAULT "ONLINE",
+    ItemPurchased varchar(10) NOT NULL,
+    Authorized varchar(1) NOT NULL DEFAULT 'T'
+);
+
+CREATE EVENT Step3 
+ON SCHEDULE EVERY '1' DAY 
+STARTS '2017-12-06 23:01:00'
+DO
+INSERT INTO ExternalPurchase (SELECT * From Purchase p WHERE p.Authorized = 'T');
 
 
 /*
@@ -704,8 +745,6 @@ the manager for the past 15 days.
 8. Generate a report that indicates all different types of items sold by each physical store
 located in a given province.
 
-
-
 9. For a given seller, generate a report that indicates the amount they have to pay for
 delivery services per day for the coming 7 days, and the total amount they have paid per
 day for the past 7 days.
@@ -720,19 +759,7 @@ generate at least four extra reports to satisfy the need of these types of users
 */
 
 
-/* Need Ad -> images table */
-/* Sorting by Promotion */ /* DONE */
-/* Province/city setting on main page? */
-/* change membership */ /* also goes to purchase page */
-
-/* View ad page */
-/* User: buy */  /* payment page, (rate after) */
-/* User: Delete / edit / add promotion  */
-/* store payment details in new table */
-
-
-/* admin reports */
-/* admin view all */
+Select Ad.Title, User.Username FROM Ad, User WHERE Ad.Username = User.Username ANd Ad.Available = "IN STORE"; 
 
 
 

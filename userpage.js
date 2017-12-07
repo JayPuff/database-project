@@ -17,6 +17,10 @@
         window.location.href = "/rent.php";
     }
 
+    window.purchaseDetails = function() {
+        window.location.href = "/purchasedetails.php";
+    }
+
     window.membership = function() {
         window.location.href = "/purchase.php?type=membership";
     }
