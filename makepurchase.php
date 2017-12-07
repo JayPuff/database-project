@@ -207,7 +207,7 @@
 
 
         if($result) {
-            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,'',:username,:id,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','PROMOTION','T')");
+            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,NULL,:username,:id,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','PROMOTION','T')");
             // Prepare statement
             $stmt->bindParam(':username', $_SESSION["Username"]);
             $stmt->bindParam(':cardtype', $_GET["card"]);
@@ -255,7 +255,7 @@
 
 
         if($result) {
-            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,'',:username,:id,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','MEMBERSHIP','T')");
+            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,NULL,:username,:id,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','MEMBERSHIP','T')");
             // Prepare statement
             $stmt->bindParam(':username', $_SESSION["Username"]);
             $stmt->bindParam(':cardtype', $_GET["card"]);
@@ -313,7 +313,7 @@
 
             $amount = $amount + $deliveryfee;
 
-            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,'',:username,NULL,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','STORE','F')");
+            $stmt = $conn->prepare("INSERT INTO Purchase VALUES(0,NULL,:username,NULL,:cardtype,:cardnumber,:amount,NOW(),'ONLINE','STORE','F')");
             // Prepare statement
             $stmt->bindParam(':username', $_SESSION["Username"]);
             $stmt->bindParam(':cardtype', $_GET["card"]);

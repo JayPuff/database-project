@@ -1,3 +1,5 @@
+SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE User;
 DROP TABLE Province;
 DROP TABLE City;
@@ -16,43 +18,26 @@ CREATE TABLE User (
     Membership int DEFAULT 7,
     Province varchar(25) NOT NULL,
     City varchar(50) NOT NULL,
-    Usertype varchar(30) NOT NULL DEFAULT "REGULAR"
+    Usertype varchar(30) NOT NULL DEFAULT "REGULAR",
+    foreign key (City) REFERENCES City(city_name)
 );
 
 INSERT INTO User VALUES ('admin','admin','Admin','Admin',30,'Quebec','Montreal',"ADMIN");
 INSERT INTO User VALUES ('nick','nick','Nicolas','Correa',7,'Quebec','Montreal',"REGULAR");
-
 INSERT INTO User VALUES ('john','john','John','Smith',14,'Quebec','Montreal',"REGULAR");
-
 INSERT INTO User VALUES ('harry','harry','Harry','Potter',30,'Quebec','Montreal',"REGULAR");
-
 INSERT INTO User VALUES ('jim','jim','James','Jones',30,'Quebec','Montreal',"REGULAR");
-
 INSERT INTO User VALUES ('pat','pat','Patrick','Stewart',7,'Quebec','Quebec City',"REGULAR");
-
 INSERT INTO User VALUES ('Mat','Mat','Matthew','Robinson',7,'Quebec','Quebec City',"REGULAR");
-
 INSERT INTO User VALUES ('sarah','sarah','Sarah','Lynn',14,'Quebec','Quebec City',"REGULAR");
-
 INSERT INTO User VALUES ('kara','kara','Kara','Edwards',14,'Quebec','Quebec City',"REGULAR");
-
 INSERT INTO User VALUES ('michel','michel','Michel','Perlsteyn',14,'Ontario','Ottowa',"REGULAR");
-
 INSERT INTO User VALUES ('rick','rick','Richard','Dawson',14,'Ontario','Ottowa',"REGULAR");
-
-
 INSERT INTO User VALUES ('tony','tony','Tony','Montana',14,'Ontario','Ottowa',"REGULAR");
-
-
 INSERT INTO User VALUES ('kim','kim','Kim','Kardashian',7,'Ontario','Ottowa',"REGULAR");
-
 INSERT INTO User VALUES ('jamie','jamie','Jamie','Fox',30,'Ontario','Toronto',"REGULAR");
-
-
 INSERT INTO User VALUES ('joe','joe','Joe','Lewis',7,'Ontario','Toronto',"REGULAR");
-
 INSERT INTO User VALUES ('maggie','maggie','Maggie','Moon',30,'Ontario','Toronto',"REGULAR");
-
 INSERT INTO User VALUES ('james','james','James','Brown',7,'Ontario','Toronto',"REGULAR");
 
 
@@ -63,7 +48,8 @@ CREATE TABLE Province (
 
 CREATE TABLE City (
     city_name varchar(50) PRIMARY KEY NOT NULL,
-    province_name varchar(50) NOT NULL
+    province_name varchar(50) NOT NULL,
+    foreign key (province_name) REFERENCES Province(province_name)
 );
 
 
@@ -133,7 +119,8 @@ CREATE TABLE Category (
 
 CREATE TABLE SubCategory (
     SubCategoryName varchar(50) PRIMARY KEY NOT NULL,
-    CategoryName varchar(50) NOT NULL
+    CategoryName varchar(50) NOT NULL,
+    foreign key (CategoryName) REFERENCES Category(CategoryName)
 );
 
 
@@ -185,7 +172,10 @@ CREATE TABLE Ad (
     Promotion int NOT NULL DEFAULT 0,
     Rating int NOT NULL DEFAULT 0,
     Deleted varchar(1) NOT NULL DEFAULT 'F',
-    Img    varchar(500) NOT NULL DEFAULT ""
+    Img    varchar(500) NOT NULL DEFAULT "",
+    foreign key (Username) REFERENCES User(Username),
+    foreign key (SubCategory) REFERENCES SubCategory(SubCategoryName),
+    foreign key (City) REFERENCES City(city_name)
 );
 
 
@@ -612,7 +602,13 @@ INSERT INTO Ad VALUES(0,'james','jim@gmail.com','514-333-1111',100,"ONLINE", "Ow
 "Wedding dress","they are used", "123 st laurent",
 'BuyAndSell','Clothing','Ontario','Toronto','2017-12-02','F',0,0,'F',"https://i.pinimg.com/736x/89/9c/b9/899cb9f8ba2abbcfa973ac0b4f27fbe5--wedding-dress-tulle-ivory-wedding-dresses.jpg");
 
-
+CREATE TABLE StoreManager (
+    Username varchar(50) PRIMARY KEY NOT NULL,
+    Admin    varchar(50) NOT NULL,
+    WorkStoreId int NOT NULL,
+    foreign key (Admin) REFERENCES User(Username),
+    foreign key (WorkStoreId) REFERENCES PhysicalStore(Id)
+);
 
 
 
@@ -627,13 +623,11 @@ CREATE TABLE Purchase (
     PurchaseTime timestamp NOT NULL,
     BoughtThrough varchar(10) NOT NULL DEFAULT "ONLINE",
     ItemPurchased varchar(10) NOT NULL,
-    Authorized varchar(1) NOT NULL DEFAULT 'T'
+    Authorized varchar(1) NOT NULL DEFAULT 'T',
+    foreign key (Username) REFERENCES User(Username),
+    foreign key (SoldBy) REFERENCES User(Username),
+    foreign key (AdId) REFERENCES Ad(Id)
 );
-
-INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-22','ONLINE','STORE','F');
-INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-23','ONLINE','STORE','F');
-INSERT INTO Purchase VALUES(0,'','nick',NULL,'CREDIT','2352-2352-6433',45,'2017-11-24','ONLINE','STORE','F');
-
 
 
 
@@ -661,14 +655,12 @@ CREATE TABLE PhysicalStore (
     Duration int NOT NULL,
     RequestedTime int NOT NULL,
     WeekType varchar(20) NOT NULL DEFAULT 'WEEKDAY',
-    Status varchar(30) NOT NULL DEFAULT 'PENDING'
+    Status varchar(30) NOT NULL DEFAULT 'PENDING',
+    foreign key (SlName) REFERENCES Sl(SlName),
+    foreign key (PaymentId) REFERENCES Purchase(Id),
+    foreign key (Username) REFERENCES User(Username),
+    foreign key (AdminUsername) REFERENCES User(Username)
 );
-
-
-INSERT INTO PhysicalStore VALUES(0,NULL,'nick',1,'SL-1','F',CURDATE(),CURDATE(),3,15,'WEEKDAY','PENDING');
-INSERT INTO PhysicalStore VALUES(0,NULL,'nick',2,'SL-2','F',CURDATE(),CURDATE(),3,65,'WEEKDAY','PENDING');
-INSERT INTO PhysicalStore VALUES(0,NULL,'nick',3,'SL-1','F',CURDATE(),CURDATE(),3,33,'WEEKDAY','PENDING');
-
 
 
 DROP EVENT Step1;
@@ -707,6 +699,10 @@ DO
 INSERT INTO ExternalPurchase (SELECT * From Purchase p WHERE p.Authorized = 'T');
 
 
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
 /*
 QUERIES
 
@@ -733,11 +729,13 @@ SELECT * FROM Ad WHERE Category = 'Rent';
 given city, have the highest average rating for all items posted in that category and in the
 specified city.
 
-SELECT Username, Category, AVG(Rating) FROM Ad WHERE Sold = 'T' GROUP BY Username, Category;
+SELECT Username, Category, AVG(Rating) FROM Ad WHERE Sold = 'T' and Rating != 0 GROUP BY Username, Category;
 
 6. For a given physical store manager, generate a report that indicates the daily revenue and
 the total number of transactions “online payments” of each physical store belonging to
 the manager for the past 15 days.
+
+SELECT * From User, Ad, Purchase WHERE User.Username = Ad.Username AND Purchase.AdId = Ad.Id;
 
 
 7. Is it profitable for a seller to rent store in SL-1 or SL-4 on weekends or weekdays.
@@ -759,7 +757,7 @@ generate at least four extra reports to satisfy the need of these types of users
 */
 
 
-Select Ad.Title, User.Username FROM Ad, User WHERE Ad.Username = User.Username ANd Ad.Available = "IN STORE"; 
+
 
 
 
